@@ -241,7 +241,7 @@ One of the drawbacks of linear probing is that you can have a big part of your a
 
 ---
 
-## **EXERCISES:**
+## Exercises
 
 > 1. Why do we use a doubly linked list for chaining? Keep in mind the three algorithms we are optimizing for.
 
@@ -268,7 +268,7 @@ We conclude that the average run time in each of these cases is $O(1+\propto)$. 
 
 ---
 
-## **CREDITS:**
+## Sources
 
 > **Figure 11.1:** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
 
