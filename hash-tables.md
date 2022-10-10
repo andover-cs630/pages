@@ -10,7 +10,7 @@ By now, we have learned a number of different elementary data structures, includ
 
 ![Chart 1](https://i.ibb.co/k5Sm8s5/table1.png)
 
-> **Figure 11.1** \*How to implement a dynamic set by a direct-address table **T**. Each key in the universe **U = {0, 1,...,9}** corresponds to an index in the table. The set **K = {2, 3, 5, 8}** of actual keys determines the slots in the table that contain pointers to elements. The other slots, heavily shaded, contain **NIL\***
+> **Figure 11.1** — How to implement a dynamic set by a direct-address table $T$. Each key in the universe $U = \{0, 1,\dots,9\}$ corresponds to an index in the table. The set $K = \{2, 3, 5, 8\}$ of actual keys determines the slots in the table that contain pointers to elements. The other slots, heavily shaded, contain `NIL`.
 
 In direct-address tables, we must make sure keys are not “too large” to prevent allocating unutilized data. It is very easy to insert, search, and delete in direct-address tables, as you can see from the code below. Furthermore, each of these algorithms runs in $O(1)$ time. Here is an example of these functions in a direct address table of Strings:
 
@@ -61,13 +61,13 @@ This turns us to hash tables, a more efficient version of direct-address tables.
 
 ![Hash Table Chart1](https://i.ibb.co/NWXBscJ/table2.png)
 
-> **Figure 11.2** \*Using a hash function $h$ to map keys hash-table slots. Because keys $k_2$ and $k_5$ map to the same slot, they collide.
+> **Figure 11.2** — Using a hash function $h$ to map keys hash-table slots. Because keys $k_2$ and $k_5$ map to the same slot, they collide.
 
 However, as you can see from the figure above, this creates a new issue: sometimes two keys hash to the same slot. This is called a collision. In order to deal with this, we use a process called chaining, which involves placing all elements that hash to the same slot in a linked list **[NOTE THIS SHOULD LINK TO OTHER PAGE]**, and putting a pointer to the head of that list in the slot. You can see this shown in the figure below:
 
 ![Hash Table Chart2](https://i.ibb.co/nQ2fNGb/table3.png)
 
-> **Figure 11.3:** \*Collision resolution by chaining. Each hash-table slot `T[j]` contains a linked list of all the keys whose hash value is $j$. For example, $h(k_1) = h(k_4)$, and $h(k_5) = h(k_7) = h(k_2)$. The linked list can be either singly or doubly linked; we show it as doubly linked because deletion is faster that way.
+> **Figure 11.3:** — Collision resolution by chaining. Each hash-table slot `T[j]` contains a linked list of all the keys whose hash value is $j$. For example, $h(k_1) = h(k_4)$, and $h(k_5) = h(k_7) = h(k_2)$. The linked list can be either singly or doubly linked; we show it as doubly linked because deletion is faster that way.
 
 Of course, this introduces new issues. Primarily, it complicates the insert, delete, and sort functions.
 
@@ -212,7 +212,7 @@ def search(name, weight):
        while iterator.weight!=weight or iterator.name!=name:
 ```
 
-We can develop a better sense of how well the search algorithm works using a metric called **load factor (∝)**, which measures the average length of a chain. Load factor is defined as $∝=\frac{n}{m}$, where $n$ is the number of elements stored in the hash table, and $m$ is the number of slots in the table `T`. The search algorithm worst case time complexity of $O(n)$, if all elements are stored in the same slot. However, this is a very unlikely outcome. We can simulate a more reasonable distribution by assuming any element is equally likely to hash into any of the $m$ slots, an assumption which is called **simple uniform hashing.**
+We can develop a better sense of how well the search algorithm works using a metric called **load factor** $(\propto)$, which measures the average length of a chain. Load factor is defined as $\propto = \frac{n}{m}$, where $n$ is the number of elements stored in the hash table, and $m$ is the number of slots in the table `T`. The search algorithm worst case time complexity of $O(n)$, if all elements are stored in the same slot. However, this is a very unlikely outcome. We can simulate a more reasonable distribution by assuming any element is equally likely to hash into any of the $m$ slots, an assumption which is called **simple uniform hashing.**
 With this assumption, we can compute the average-case run time of a search as being proportional to the number of elements the algorithm looks at before finding the element or abandoning the search because the element is not in the slot.
 
 ---
@@ -221,22 +221,21 @@ With this assumption, we can compute the average-case run time of a search as be
 
 Consequently, in order to minimize the running time of the search algorithm, we want to design hash functions that come as close to simple uniform hashing as possible. This means our hash functions must try to avoid sort elements into slots independently of patterns that may exist in our data. There are two main strategies to this.
 
-First, the division method. In this method, we hash k to the remainder of $\frac{k}{m}$ where $m$ is the number of slots in the table. In simpler terms, $h(k) = k \text{mod}(m)$. There are some advantages to this strategy: it is simple to code and easy to compute. However, there are also some limitations, as there are some values of m that we want to avoid to minimize the number of keys we hash to one slot, like most powers of two, which will map keys to just their first few bits.
+First, the division method. In this method, we hash $k$ to the remainder of $\frac{k}{m}$ where $m$ is the number of slots in the table. In simpler terms, $h(k) \equiv k \pmod{m}$. There are some advantages to this strategy: it is simple to code and easy to compute. However, there are also some limitations, as there are some values of $m$ that we want to avoid to minimize the number of keys we hash to one slot, like most powers of two, which will map keys to just their first few bits.
 
-We can also use the multiplication method for assigning keys to slot. This method is more complex, and we define the function as such: $h(k) = m⌊(kA mod 1)⌋$
-Where $A$ is a number such that $0 < A < 1$, and $m$ is the number of slots. In this method, the value of $m$ is less significant, but some values of $A$ maximise the probability of simple uniform hashing.
+We can also use the multiplication method for assigning keys to slot. This method is more complex, and we define the function as such: $h(k) = m\lfloor kA \pmod{1} \rfloor$ where $A$ is a number such that $0 < A < 1$, and $m$ is the number of slots. In this method, the value of $m$ is less significant, but some values of $A$ maximise the probability of simple uniform hashing.
 
 The shared downside of each of these strategies of making hash functions is that in each, a set of keys will always hash the same way. This means that for some data sets, the algorithms will always perform at the worst case scenario. We can solve this using universal hashing, a strategy in which we randomly choose a hash function from a pre-designed class of functions independently of the actual keys we are storing. Because we are selecting the hash function randomly, this strategy guarantees that we will have good average performance for any single input, and no input will always produce worst-case runtime.
 
 ---
 
-## **11.4 OPEN ADDRESSING:**
+## Open Addressing
 
 We talked earlier about chaining to resolve collisions when two keys are mapped to the same slot. However, what if we want to prevent collisions in the first place? We do this using a strategy called open addressing, where collisions get resolved by placing the key in the next available slot. Let’s say that we had a collection of names (Mia, Tim, Bea, Zoe, Sue) and we use a hash function to determine their slot in the array. We make our way through the names, and each maps to a distinct slot, until Sue, which hashes to slot 4, the same slot that Mia did. What can we do? One option is to move Sue to the next available slot. In this case, slot 4 is full, but if we look one to the right, it’s open. Thus, we move Sue to slot number 5. If the same thing happened again, this time “Joe” getting mapped to slot 4, we’d need to first look to slot 5, then once we know it’s full, move Joe to slot 6 which is empty at this point. This strategy is called Linear Probing, and it utilizes linear search to find an open spot. If we probe through our entire list without finding an open spot, linear probing will cycle through to the beginning of the list, looking for any open spots.
 
 ![11.4 Chart1](https://i.ibb.co/ct6QH7n/table4.png)
 
-One of the drawbacks of linear probing is that you can have a big part of your array become filled while the rest is open. Your hash function might put a lot of keys in the same area of the array, and that array becomes overfilled with values as suddenly every key has its slot already filled. A strategy to help counteract this effect is with Plus 3 rehash and Quadratic Probing which both aim to help disperse your keys across the array. Plus 3 rehash will check a slot 3 spaces away from the original upon finding that a slot is filled. This works to spread out your data entries across the array. Quadratic Probing is another strategy, which entails taking the number of failed attempts to find an open slot, squaring that value, then adding it to whatever value you are at. Thus, if this is your 2nd failed attempt at finding a slot, you’d do 2^2=4, meaning you’d then look 4 slots ahead of the one you failed on. This quadratic probing does a great job of dispersing keys, since its exponential nature means that very soon your entries could end up much farther from where they were originally placed.
+One of the drawbacks of linear probing is that you can have a big part of your array become filled while the rest is open. Your hash function might put a lot of keys in the same area of the array, and that array becomes overfilled with values as suddenly every key has its slot already filled. A strategy to help counteract this effect is with Plus 3 rehash and Quadratic Probing which both aim to help disperse your keys across the array. Plus 3 rehash will check a slot 3 spaces away from the original upon finding that a slot is filled. This works to spread out your data entries across the array. Quadratic Probing is another strategy, which entails taking the number of failed attempts to find an open slot, squaring that value, then adding it to whatever value you are at. Thus, if this is your 2nd failed attempt at finding a slot, you’d do $2^2=4$, meaning you’d then look 4 slots ahead of the one you failed on. This quadratic probing does a great job of dispersing keys, since its exponential nature means that very soon your entries could end up much farther from where they were originally placed.
 
 > **Helpful Video:** https://youtu.be/NHZL5439lK0
 
@@ -244,27 +243,26 @@ One of the drawbacks of linear probing is that you can have a big part of your a
 
 ## **EXERCISES:**
 
-> **S.11.1.1:** Why do we use a doubly linked list for chaining? Keep in mind the three algorithms we are optimizing for.
+> 1. Why do we use a doubly linked list for chaining? Keep in mind the three algorithms we are optimizing for.
 
 - A doubly linked list makes deletion simpler, as we know from the linked lists lesson.
 
-> **S.11.1.2:** Write in pseudocode the search algorithm for a chained hash table.
+> 2. Write in pseudocode the search algorithm for a chained hash table.
 
-- Locate T[h(k0], which is a linked list
-  Search the linked list for a value with the key k
+- Locate `T[h(k0]`, which is a linked list
+- Search the linked list for a value with the key $k$
 
-> **S.11.2.1:** Under the assumption of simple uniform hashing, what is the average run time of the search algorithm if it doesn’t find the element? Don't forget about the time to run the hash function!
+> 3. Under the assumption of simple uniform hashing, what is the average run time of the search algorithm if it doesn’t find the element? Don't forget about the time to run the hash function!
 
-- O(1+∝)
-- A key k will have an equal chance of being in any of the m slots, so the runtime is proportional to the time to traverse the list T[h(k)], which will have expected length ∝. Thus, the time complexity is O(∝). Combined with the O(1) time to compute the hash function, we get O(1+∝).
+- $O(1+\propto)$. A key $k$ will have an equal chance of being in any of the $m$ slots, so the runtime is proportional to the time to traverse the list `T[h(k)]`, which will have expected length $\propto$. Thus, the time complexity is $O(\propto)$. Combined with the $O(1)$ time to compute the hash function, we get $O(1+\propto)$.
 
-> **S.11.2.2:** What about the average run time if it does?
+> 4. What about the average run time if it does?
 
-- O(1+∝) (see book for further explanation as to why and a proof on page 259)
+- $O(1+\propto)$ (see book for further explanation as to why and a proof on page 259)
 
-We conclude that the average run time in each of these cases is O(1+∝). This means that if the number of hash table slots m is at least proportional to the number of elements n, meaning n=O(m), then the time complexity of the search is constant, O(1).
+We conclude that the average run time in each of these cases is $O(1+\propto)$. This means that if the number of hash table slots $m$ is at least proportional to the number of elements $n$, meaning $n=O(m)$, then the time complexity of the search is constant, $O(1)$.
 
-> **S.11.3.1** Consider a hash table of size m= 100 and a corresponding hash function h(k)=kmod(m). Where would the keys 5928, 1001, and 154 be mapped?
+> 5. Consider a hash table of size $m= 100$ and a corresponding hash function $h(k) \equiv k \pmod{m}$. Where would the keys 5928, 1001, and 154 be mapped?
 
 - 28, 1, and 54
 
@@ -274,6 +272,6 @@ We conclude that the average run time in each of these cases is O(1+∝). This m
 
 > **Figure 11.1:** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
 
-> **Figure 11.2:** Introduction to to algorithms, 3rd edition: https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
+> **Figure 11.2:** Introduction to Algorithms, 3rd edition: https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
 
-> **Figure 11.3:** Introduction to to algorithms, 3rd edition: https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
+> **Figure 11.3:** Introduction to Algorithms, 3rd edition: https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
