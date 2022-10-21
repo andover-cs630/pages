@@ -171,7 +171,7 @@ class HashTable:
 
    def __str__(self):
        hts = []
-       for key in self.keys:
+       for key in sel/f.keys:
            hts.append(str(key) + " : " + str(self.get(key)))
 
        return str(hts)
