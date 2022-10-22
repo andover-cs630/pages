@@ -110,7 +110,7 @@ To continue exploring this topic, check out this video, **[here](https://drive.g
 
 ---
 
-## **Exercises:**
+## **Exercises**
 
 > 1. Select a language that automates pointers
 
@@ -124,7 +124,7 @@ To continue exploring this topic, check out this video, **[here](https://drive.g
 
 ## **Sources:**
 
-> **Introduction to Algorithms, 3rd edition:** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
+> **Introduction to Algorithms, 3rd edition** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
 
 > https://math.hws.edu/eck/cs124/javanotes2/c9/s2.html#:~:text=A%20POINTER%20IS%20JUST%20THE,of%20that%20object%20in%20memory
 
@@ -135,5 +135,3 @@ To continue exploring this topic, check out this video, **[here](https://drive.g
 > **S.4.2 Code example:** https://www.geeksforgeeks.org/python-initialize-empty-array-of-given-length/
 
 > **S.4.3 Code example:** https://www.w3schools.com/python/python_conditions.asp
-
-test
