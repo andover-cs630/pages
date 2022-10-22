@@ -270,6 +270,8 @@ We conclude that the average run time in each of these cases is $O(1+\propto)$. 
 
 ## Sources
 
+> **Introduction to Algorithms, 3rd edition** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
+
 > **Figure 11.1:** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
 
 > **Figure 11.2:** Introduction to Algorithms, 3rd edition: https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
