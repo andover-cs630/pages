@@ -1,18 +1,25 @@
-# **Linked List**
+---
+title: Linked List
+description: linked lists
+layout: "@main"
+---
+
 ## **S.1: Linked List**
+
 Linked lists are a linear data structure. Each element of a linked list stores a piece of data and a pointer which links to the next node.
 
 ![Linked list 1](https://i.ibb.co/YcL7hjc/Linked-List-1-3.png)
 
 Unlike arrays, stacks, queues and other linear data structures, there is no overarching structure holding the elements of a linked list. Instead, accessing elements of a linked list involves traversing the structure via pointers to the next node starting from the head node.
-Some operations on linked lists are more efficient than arrays. Adding and deleting elements from an array involves moving each affected element to a new location in  memory, which takes O(n) runtime. Inserting and deleting elements in a linked list only requires switching the Next pointers around to accommodate an extra node, which can also be done in O(n) runtime. This can be improved to constant time if the linked list is a Doubly Linked List.
+Some operations on linked lists are more efficient than arrays. Adding and deleting elements from an array involves moving each affected element to a new location in memory, which takes O(n) runtime. Inserting and deleting elements in a linked list only requires switching the Next pointers around to accommodate an extra node, which can also be done in O(n) runtime. This can be improved to constant time if the linked list is a Doubly Linked List.
 
 ![Linked list 2](https://i.ibb.co/GV2XZNp/Linked-List-2.png)
 
 Linked lists are less efficient than arrays for getting elements by index. They also take up more memory than an array, since each node has to store data and a pointer to the next node.
 The linked list that we have been discussing so far has been a **_singly-linked list_**, meaning it can only be traversed in one direction. Below is a Python implementation of a singly-linked list.
 
-***Python***
+**_Python_**
+
 ```Python
 # Function to initialize the linked list object
 class LinkedListNode(object):
@@ -30,10 +37,12 @@ if __name__ == "__main__":
     print(head.data, head.next.data, head.next.next.data)
 out: 1, 2, 3
 ```
-***Java***
+
+**_Java_**
+
 ```Java
 // Function to initialize the linked list object
-class Node { 
+class Node {
     int data;
     Node next;
 
@@ -43,60 +52,64 @@ class Node {
 }
 ```
 
-
 In some instances, it can be helpful to have an overarching linked list class to keep the head well-defined. Though the algorithms in this article will be tailored to a node-based approach, an example of the linked list class is given below:
 
-***Python***
+**_Python_**
+
 ```Python
 class Node:
-  
+
         def __init__(self, data):
-        self.data = data  
-        self.next = None   
-  
-  
+        self.data = data
+        self.next = None
+
+
 class LinkedList(object):
-  
+
     def __init__(self):
         self.head = None
 
 if __name__ == '__main__':
-  
+
     lst = LinkedList()
-  
+
     lst.head = Node(1)
     second = Node(2)
     third = Node(3)
 
     llist.head.next = second  # Link first node with second
-  
+
     second.next = third
     print(lst.head.data, lst.head.next.data, lst.head.next.next.data)
     out: 1, 2, 3
 ```
 
 ## **S.2 Doubly Linked Lists and Algorithms**
+
 Unlike the singly-linked list, the doubly-linked list contains pointers to the previous node as well as the next node. Doubly-linked lists can be traversed in reverse order, which makes node deletion more efficient. However, it takes more memory to store a pointer to the previous node for every node.
 
 ![Linked list 3](https://i.ibb.co/3SKjpgf/Linked-List-3.png)
 
-***Python***
+**_Python_**
+
 ```Python
 class LinkedList(object):
     def __init__(self, data):
         self.data = data
         self.next = None
         self.prev = None
- 
+
 
 ```
-***Java***
+
+**_Java_**
+
 ```Java
 class Node {
    int data;
    Node next;
    Node prev;
- 
+
    Node(int data) {
        this.data = data;
    }
@@ -107,8 +120,8 @@ class Node {
 We will be moving into the essential methods for a linked list class, starting with searching a linked list! For each algorithm in this article, we strongly recommend you try **_programming each implementation on your own_** before we show you the solution.
 Given a linked list head node head and a target value target, return the node with data matching that of the target value.
 
+**_Python Solution:_**
 
-***Python Solution:***
 ```Python
 def search(self, target):
         """
@@ -121,25 +134,26 @@ def search(self, target):
         #recursive case
         if not self.next:
             return None
-        return self.next.search(target)  
+        return self.next.search(target)
 ```
-***Java Solution:***
+
+**_Java Solution:_**
+
 ```Java
-public LinkedListNode search(String target) {    
+public LinkedListNode search(String target) {
        LinkedListNode current = head;
-      
+
        while (current != null) {
            if (current.getData() != null && current.getData().equals(target)) {
                return current;
            }
            current = current.getNext();
        }
- 
+
        return null;
    }
 }
 ```
-
 
 If uncomfortable with recursion, here is an iterative implementation:
 
@@ -158,7 +172,8 @@ def search(self, target):
 
 The next method we will be implementing is the linked list insertion method. Given an existing linked list node _a_ and _a_ new node _b_ to be inserted after _a_, implement the method _a_.insert(_b_) such that _a_ -> _b_. (Hint: if the pre-existing linked list looks like a -> z, don’t forget to link a -> b -> z)
 
-***Python Solution***
+**_Python Solution_**
+
 ```Python
 def insert(self, head):
         """
@@ -174,7 +189,9 @@ def insert(self, head):
         if head.next:
             head.next.prev = head
 ```
-***Java Solution:***
+
+**_Java Solution:_**
+
 ```Java
 void add_notes (int data) {
        if (head == null){
@@ -187,15 +204,17 @@ void add_notes (int data) {
        }
        a_node.next = new Node(data);
        }
-      
+
    }
 
 ```
+
 The next method we will be programming is the node deletion method. Given an existing linked list _head_ node head and a value _target_ to be removed from the linked list, successfully delete the first node with a data value matching _target_ from the linked list.
 
 ![Linked list 4](https://i.ibb.co/w0fk3NP/Linked-List-4.png)
 
-***Python Solution:***
+**_Python Solution:_**
+
 ```Python
 def delete(self, LL):
         """
@@ -217,8 +236,8 @@ def delete(self, LL):
                 pointer.next.prev = pointer.prev
         else:
             """
-            This means that the first element is the one being deleted. In this case, we will instead delete 
-            the second node and set the first node's data equal to the second's. This allows the user to 
+            This means that the first element is the one being deleted. In this case, we will instead delete
+            the second node and set the first node's data equal to the second's. This allows the user to
             continue to call the linked list by the head node (in case they don't have access to the second node)
             """
             self.data = self.next.data
@@ -227,7 +246,8 @@ def delete(self, LL):
                 self.next = self.next.next
 ```
 
-***Java Solution:***
+**_Java Solution:_**
+
 ```Java
 void delete (int data) {
        Node random_node=head;
@@ -246,12 +266,10 @@ void delete (int data) {
 
 ```
 
-
-
-
 Finally, it would be nice to have a way to check whether we have made the correct changes to our linked list after each operation. Create a way to print out the contents of a linked list given a head node _head_.
-    
-***Python Solution:***
+
+**_Python Solution:_**
+
 ```Python
 def print_list(self):
 cur = self
@@ -260,7 +278,8 @@ print(cur.data)
 cur = cur.next
 ```
 
-***Java Solution:***
+**_Java Solution:_**
+
 ```Java
 void int print(Node head) {
      if (head==null) {
@@ -277,7 +296,6 @@ void int print(Node head) {
 
 ```
 
-
 ## **Exercises**
 
 Practice problems:
@@ -287,36 +305,43 @@ The deletion method we implemented is essentially a **delete_at_value** method. 
 
 What does this function do?
 
-***Python Problem***
+**_Python Problem_**
+
 ```Python
 def fun1(head):
     if(head == None):
         return
-    fun1(head.next) 
+    fun1(head.next)
     print(head.data, end = " ")
- ```
+```
+
 ```Java
 static void fun1(Node head){
     if (head == null){
         return;
     }
-  
+
     fun1(head.next);
     System.out.print(head.data + " ");
 }
 
 //Answer: Prints out the data from each Node in a given linked list
 ```
->https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
+
+> https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
 
 ## **Additional Resources**
 
 ### **Linked List**
+
 Video We Made to Help Explain Linked List:
+
 > https://www.youtube.com/watch?v=oxblaZtQeyc
 
 More linked list problems:
->https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
+
+> https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
 
 ## **Sources**
->https://www.geeksforgeeks.org/what-is-linked-list/  
+
+> https://www.geeksforgeeks.org/what-is-linked-list/
