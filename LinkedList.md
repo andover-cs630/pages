@@ -20,7 +20,7 @@ The linked list that we have been discussing so far has been a **_singly-linked 
 
 **_Python_**
 
-```Python
+```python
 # Function to initialize the linked list object
 class LinkedListNode(object):
     def __init__(self, data):
@@ -40,7 +40,7 @@ out: 1, 2, 3
 
 **_Java_**
 
-```Java
+```java
 // Function to initialize the linked list object
 class Node {
     int data;
@@ -56,7 +56,7 @@ In some instances, it can be helpful to have an overarching linked list class to
 
 **_Python_**
 
-```Python
+```python
 class Node:
 
         def __init__(self, data):
@@ -92,7 +92,7 @@ Unlike the singly-linked list, the doubly-linked list contains pointers to the p
 
 **_Python_**
 
-```Python
+```python
 class LinkedList(object):
     def __init__(self, data):
         self.data = data
@@ -104,7 +104,7 @@ class LinkedList(object):
 
 **_Java_**
 
-```Java
+```java
 class Node {
    int data;
    Node next;
@@ -122,7 +122,7 @@ Given a linked list head node head and a target value target, return the node wi
 
 **_Python Solution:_**
 
-```Python
+```python
 def search(self, target):
         """
         Traverses linked list recursively and returns LinkedList object with the desired target
@@ -139,7 +139,7 @@ def search(self, target):
 
 **_Java Solution:_**
 
-```Java
+```java
 public LinkedListNode search(String target) {
        LinkedListNode current = head;
 
@@ -157,7 +157,7 @@ public LinkedListNode search(String target) {
 
 If uncomfortable with recursion, here is an iterative implementation:
 
-```Python
+```python
 def search(self, target):
         cur = self
         #loops as long as the current node has a data value
@@ -174,7 +174,7 @@ The next method we will be implementing is the linked list insertion method. Giv
 
 **_Python Solution_**
 
-```Python
+```python
 def insert(self, head):
         """
         Given a node head, head is inserted directly after the node that insert is called upon
@@ -192,7 +192,7 @@ def insert(self, head):
 
 **_Java Solution:_**
 
-```Java
+```java
 void add_notes (int data) {
        if (head == null){
            head = new Node(data);
@@ -215,7 +215,7 @@ The next method we will be programming is the node deletion method. Given an exi
 
 **_Python Solution:_**
 
-```Python
+```python
 def delete(self, LL):
         """
         Deletes a node with the value of LL from the linked list that the method is called upon
@@ -248,7 +248,7 @@ def delete(self, LL):
 
 **_Java Solution:_**
 
-```Java
+```java
 void delete (int data) {
        Node random_node=head;
        if (random_node.data==data){
@@ -270,7 +270,7 @@ Finally, it would be nice to have a way to check whether we have made the correc
 
 **_Python Solution:_**
 
-```Python
+```python
 def print_list(self):
 cur = self
 while cur:
@@ -280,7 +280,7 @@ cur = cur.next
 
 **_Java Solution:_**
 
-```Java
+```java
 void int print(Node head) {
      if (head==null) {
            return length;
@@ -307,7 +307,7 @@ What does this function do?
 
 **_Python Problem_**
 
-```Python
+```python
 def fun1(head):
     if(head == None):
         return
@@ -315,7 +315,7 @@ def fun1(head):
     print(head.data, end = " ")
 ```
 
-```Java
+```java
 static void fun1(Node head){
     if (head == null){
         return;
