@@ -4,7 +4,7 @@ description: A comprehensive overview for the Binary Tree data structure
 layout: "@main"
 ---
 
-## **S.1 Introduction - what is a binary search tree**
+## **S.1 Introduction - what is a binary search tree**$$
 
 A Binary Search Tree (BST) is a binary tree with a set of extra properties.
 
