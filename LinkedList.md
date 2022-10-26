@@ -13,7 +13,7 @@ Linked lists are a linear data structure. Each element of a linked list stores a
 Unlike arrays, stacks, queues and other linear data structures, there is no overarching structure holding the elements of a linked list. Instead, accessing elements of a linked list involves traversing the structure via pointers to the next node starting from the head node.
 Some operations on linked lists are more efficient than arrays. Adding and deleting elements from an array involves moving each affected element to a new location in memory, which takes O(n) runtime. Inserting and deleting elements in a linked list only requires switching the Next pointers around to accommodate an extra node, which can also be done in O(n) runtime. This can be improved to constant time if the linked list is a Doubly Linked List.
 
-![Linked list 2](https://i.ibb.co/GV2XZNp/Linked-List-2.png)
+![Linked list 2](https://i.ibb.co/3kstB8h/Linked-List-2.png)
 
 Linked lists are less efficient than arrays for getting elements by index. They also take up more memory than an array, since each node has to store data and a pointer to the next node.
 The linked list that we have been discussing so far has been a **_singly-linked list_**, meaning it can only be traversed in one direction. Below is a Python implementation of a singly-linked list.
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
 Unlike the singly-linked list, the doubly-linked list contains pointers to the previous node as well as the next node. Doubly-linked lists can be traversed in reverse order, which makes node deletion more efficient. However, it takes more memory to store a pointer to the previous node for every node.
 
-![Linked list 3](https://i.ibb.co/3SKjpgf/Linked-List-3.png)
+![Linked list 3](https://i.ibb.co/2M46ssv/Linked-List-3.png)
 
 **_Python_**
 
@@ -211,7 +211,7 @@ void add_notes (int data) {
 
 The next method we will be programming is the node deletion method. Given an existing linked list _head_ node head and a value _target_ to be removed from the linked list, successfully delete the first node with a data value matching _target_ from the linked list.
 
-![Linked list 4](https://i.ibb.co/w0fk3NP/Linked-List-4.png)
+![Linked list 4](https://i.ibb.co/Q6CtQ7h/Linked-List-4.png)
 
 **_Python Solution:_**
 
