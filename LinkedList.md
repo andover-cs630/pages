@@ -18,7 +18,7 @@ Some operations on linked lists are more efficient than arrays. Adding and delet
 Linked lists are less efficient than arrays for getting elements by index. They also take up more memory than an array, since each node has to store data and a pointer to the next node.
 The linked list that we have been discussing so far has been a **_singly-linked list_**, meaning it can only be traversed in one direction. Below is a Python implementation of a singly-linked list.
 
-**_Python_**
+###Python
 
 ```python
 # Function to initialize the linked list object
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 out: 1, 2, 3
 ```
 
-**_Java_**
+###Java
 
 ```java
 // Function to initialize the linked list object
@@ -54,7 +54,7 @@ class Node {
 
 In some instances, it can be helpful to have an overarching linked list class to keep the head well-defined. Though the algorithms in this article will be tailored to a node-based approach, an example of the linked list class is given below:
 
-**_Python_**
+###Python
 
 ```python
 class Node:
@@ -83,6 +83,7 @@ if __name__ == '__main__':
     print(lst.head.data, lst.head.next.data, lst.head.next.next.data)
     out: 1, 2, 3
 ```
+---
 
 ## **S.2 Doubly Linked Lists and Algorithms**
 
@@ -90,7 +91,7 @@ Unlike the singly-linked list, the doubly-linked list contains pointers to the p
 
 ![Linked list 3](https://i.ibb.co/2M46ssv/Linked-List-3.png)
 
-**_Python_**
+###Python
 
 ```python
 class LinkedList(object):
@@ -102,7 +103,7 @@ class LinkedList(object):
 
 ```
 
-**_Java_**
+###Java
 
 ```java
 class Node {
@@ -120,7 +121,7 @@ class Node {
 We will be moving into the essential methods for a linked list class, starting with searching a linked list! For each algorithm in this article, we strongly recommend you try **_programming each implementation on your own_** before we show you the solution.
 Given a linked list head node head and a target value target, return the node with data matching that of the target value.
 
-**_Python Solution:_**
+###Python
 
 ```python
 def search(self, target):
@@ -137,7 +138,7 @@ def search(self, target):
         return self.next.search(target)
 ```
 
-**_Java Solution:_**
+###Java
 
 ```java
 public LinkedListNode search(String target) {
@@ -172,7 +173,7 @@ def search(self, target):
 
 The next method we will be implementing is the linked list insertion method. Given an existing linked list node _a_ and _a_ new node _b_ to be inserted after _a_, implement the method _a_.insert(_b_) such that _a_ -> _b_. (Hint: if the pre-existing linked list looks like a -> z, don’t forget to link a -> b -> z)
 
-**_Python Solution_**
+###Python
 
 ```python
 def insert(self, head):
@@ -190,7 +191,7 @@ def insert(self, head):
             head.next.prev = head
 ```
 
-**_Java Solution:_**
+###Java
 
 ```java
 void add_notes (int data) {
@@ -213,7 +214,7 @@ The next method we will be programming is the node deletion method. Given an exi
 
 ![Linked list 4](https://i.ibb.co/Q6CtQ7h/Linked-List-4.png)
 
-**_Python Solution:_**
+###Python
 
 ```python
 def delete(self, LL):
@@ -246,7 +247,7 @@ def delete(self, LL):
                 self.next = self.next.next
 ```
 
-**_Java Solution:_**
+###Java 
 
 ```java
 void delete (int data) {
@@ -268,7 +269,7 @@ void delete (int data) {
 
 Finally, it would be nice to have a way to check whether we have made the correct changes to our linked list after each operation. Create a way to print out the contents of a linked list given a head node _head_.
 
-**_Python Solution:_**
+###Python
 
 ```python
 def print_list(self):
@@ -278,7 +279,7 @@ print(cur.data)
 cur = cur.next
 ```
 
-**_Java Solution:_**
+###Java
 
 ```java
 void int print(Node head) {
@@ -295,6 +296,7 @@ void int print(Node head) {
    }
 
 ```
+---
 
 ## **Exercises**
 
@@ -305,7 +307,7 @@ The deletion method we implemented is essentially a **delete_at_value** method. 
 
 What does this function do?
 
-**_Python Problem_**
+### Python
 
 ```python
 def fun1(head):
@@ -330,6 +332,8 @@ static void fun1(Node head){
 
 > https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
 
+---
+
 ## **Additional Resources**
 
 ### **Linked List**
@@ -341,6 +345,8 @@ Video We Made to Help Explain Linked List:
 More linked list problems:
 
 > https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
+
+---
 
 ## **Sources**
 
