@@ -196,6 +196,7 @@ else:
     print("Array after attempted sort: ")
     for i in range(len(array)):
         print(str(array[i]) + " ")
+        
 ```
 
 ##Sources
