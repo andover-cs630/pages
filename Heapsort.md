@@ -9,7 +9,7 @@ The foundations of heapsort lie in a rooted binary tree. As a refresher, a roote
 
 ![Binary Tree](https://i.ibb.co/xCp7dFc/Chart-1-Heapsort.png)
 
-> **Figure S.1** Any node without “children”, or nodes directly below it, is known as a leaf. The height of the node in the tree is the number of edges between that node and a leaf. For example, in the visualization above, the height of the element 1 is 0, while the height of element 14 is 2. The height of a tree is defined as the distance between the root and any leaf.
+> **Figure S.1** Any node without “children”, or nodes directly below it, is known as a leaf. The height of the node in the tree is the number of edges between that node and a leaf. For example, in the visualization above, the height of the element `1` is 0, while the height of element `14` is 2. The height of a tree is defined as the distance between the root and any leaf.
 
 ## **6.2 Maintaining the Heap Property**
 
@@ -63,13 +63,15 @@ int n=arr.length-1;
 ```
 ---
 ## **Exercises**
->S.1.1 - What is the maximum height of a node in a heap with n elements, in terms of n?
-Answer: floor(log2(n))
+>S.1.1 - What is the maximum height of a node in a heap with n elements, in terms of ?
 
->S.1.2 - What are the minimum and maximum numbers of elements in a heap with height n?
-Answer: min 2n max 2n+1 - 1
+**Answer:** floor(log2(n))
 
->S.1.3 - What are the indices of the children of a node with index n?
+>S.1.2 - What are the minimum and maximum numbers of elements in a heap with height _n_?
+
+**Answer:** min 2n max 2n+1 - 1
+
+>S.1.3 - What are the indices of the children of a node with index $n$?
 Answer: 2n, 2n+1
 
 >S.3.1 - Draw the process of heapifying the array [15, 31, 2, 29, 12, 10, 14, 3]
