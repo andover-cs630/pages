@@ -340,7 +340,7 @@ static void fun1(Node head){
 
 Video We Made to Help Explain Linked List:
 
-> https://www.youtube.com/watch?v=oxblaZtQeyc
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oxblaZtQeyc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 More linked list problems:
 

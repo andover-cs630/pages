@@ -11,8 +11,8 @@ Queues follow the FIFO method (First In, First Out) such that the first object a
 To conceptualize queues, think about instances where FIFO is also followed. At a restaurant waiting for seating, purchasing movie tickets, waiting in the lunch line—all these examples have one thing in common—the first person to enter the queue is the first person to exit the queue. 
 
 When working with queues, keep in mind that a queue should allow access to both ends of the queue and should be able to handle multiple data types as needed.
-> **Additional Information —** https://www.loom.com/share/141354ecbb2d40269cb24759e91a4767
-
+> **Additional Information —** 
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/141354ecbb2d40269cb24759e91a4767" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 
 ## General Implementation
