@@ -1,0 +1,26 @@
+---
+import TitlePage from 'src/components/TitlePage.astro';
+import Header from '../components/Header/Header.astro';
+import DescriptionPage from 'src/components/DescriptionPage.astro';
+import ExamplePage from 'src/components/ExamplePage.astro'
+import LearningPage from 'src/components/LearningPage.astro';
+---
+<html>
+    <body>
+        <Header/>
+        <TitlePage />
+        <DescriptionPage />
+        <ExamplePage />
+        <LearningPage />
+    </body>
+</html>
+
+<style>
+    body {
+        margin: 0;
+        height: auto;
+    }
+    body DescriptionPage {
+        box-shadow: 0 0.125rem black;
+    }
+</style>
