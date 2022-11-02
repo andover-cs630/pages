@@ -32,6 +32,8 @@ Evidently, the time complexity of this function is O(n), which is significantly 
 
 Essentially, DP makes use of a time-memory trade off, where additional memory is used to lessen the time needed. DP is also most commonly used for problems involving some recursive element; in most other scenarios, DP is unnecessary. 
 
+---
+
 ## **S.2 Recursive Top-Down Approach with Memoization**
 
 Similar to the bottom-up approach, the top-down approach with memoization tackles subproblems in order to solve the main problem. However, notice that our Fibonacci function starts at the beginning of the sequence and builds up toward the nth number. With a top-down approach, recursion is preserved, but subproblems that have already been solved are saved in a process called memoization. 
@@ -76,6 +78,8 @@ def get_max_wm_aux(p, n, r):
         max_val = max(max_val, p[i] + get_max(p, n - 1 - i))
     return max_val
 ```
+
+---
 
 ## **Exercises**
 
