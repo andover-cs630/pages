@@ -9,13 +9,13 @@ The foundations of heapsort lie in a rooted binary tree. As a refresher, a roote
 
 ![Binary Tree](https://i.ibb.co/xCp7dFc/Chart-1-Heapsort.png)
 
-> **Figure S.1** Any node without “children”, or nodes directly below it, is known as a leaf. The height of the node in the tree is the number of edges between that node and a leaf. For example, in the visualization above, the height of the element `1` is 0, while the height of element `14` is 2. The height of a tree is defined as the distance between the root and any leaf.
+> **Figure S.1** Any node without “children”, or nodes directly below it, is known as a `leaf`. The height of the node in the tree is the number of edges between that node and a `leaf`. For example, in the visualization above, the height of the node holding $17$ is zero, while the height of the node holding $3$ is two. The height of a tree is defined as the distance between the root and any `leaf`.
 
 ## **6.2 Maintaining the Heap Property**
 
 Heaps, essentially, are like a “sorted” binary tree. There are two types of heaps: min-heaps and max-heaps. For the heapsort algorithm, a max-heap is used. In a max-heap, the maximum value resides at the root, and each child node’s value is less than its parent node’s.
 
-An essential element of heapsort is maintaining the condition that the heap stays ordered—in other words, that it remains a max-heap. To do this, we invoke a function called “heapify”. For each node A[i], heapify identifies its children, A[left(i)] and A[right(i)]. The largest of these 3 is determined. If A[i] is largest, the sub-tree is already a max heap and the algorithm moves on, but if one of the children is the largest, it is swapped with the parent node. Then, the sub-tree rooted at that position is also re-heapified. After calling this function recursively for all subtrees, our heap becomes a max-heap.
+An essential element of heapsort is maintaining the condition that the heap stays ordered—in other words, that it remains a max-heap. To do this, we invoke a function called “heapify”. For each node $A[i]$, heapify identifies its children, $A[left(i)]$ and $A[right(i)]$. The largest of these 3 is determined. If $A[i]$ is largest, the subtree is already a max heap and the algorithm moves on, but if one of the children is the largest, it is swapped with the parent node. Then, the sub-tree rooted at that position is also re-heapified. After calling this function recursively for all subtrees, our heap becomes a max-heap.
 
 ###Java
 ```java
