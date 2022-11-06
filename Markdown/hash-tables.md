@@ -14,10 +14,9 @@ By now, we have learned a number of different elementary data structures, includ
 
 Taken from: https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
 
-
 In direct-address tables, we must make sure keys are not “too large” to prevent allocating unutilized data. It is very easy to insert, search, and delete in direct-address tables, as you can see from the code below. Furthermore, each of these algorithms runs in $O(1)$ time. Here is an example of these functions in a direct address table of Strings:
 
-### Java
+### java
 
 ```java
 public class directAccessTable {
@@ -37,7 +36,7 @@ public class directAccessTable {
 }
 ```
 
-### Python
+### python
 
 ```python
 #X is the length of your list
@@ -66,7 +65,7 @@ This turns us to hash tables, a more efficient version of direct-address tables.
 
 > **Figure 11.2** — Using a hash function $h$ to map keys hash-table slots. Because keys $k_2$ and $k_5$ map to the same slot, they collide.
 
-However, as you can see from the figure above, this creates a new issue: sometimes two keys hash to the same slot. This is called a **collision**. In order to deal with this, we use a process called **chaining**, which involves placing all elements that hash to the same slot in a [linked list](https://pa-dsa.vercel.app/LinkedList 'Linked List Blog Post'), and putting a pointer to the head of that list in the slot. You can see this shown in the figure below:
+However, as you can see from the figure above, this creates a new issue: sometimes two keys hash to the same slot. This is called a **collision**. In order to deal with this, we use a process called **chaining**, which involves placing all elements that hash to the same slot in a [linked list](https://pa-dsa.vercel.app/LinkedList "Linked List Blog Post"), and putting a pointer to the head of that list in the slot. You can see this shown in the figure below:
 
 ![Hash Table Chart2](https://i.ibb.co/nQ2fNGb/table3.png)
 
@@ -76,16 +75,15 @@ Of course, this introduces new issues. Primarily, it complicates the insert, del
 
 Here is an example of a hash table, utilizing an array to organize the overall data and using chaining in order to deal with collisions. As you can, we have a hash function that takes in a string and spits back a hash value, and then we utilize that hash value to insert into the array. Once in the array, we have a linked list to traverse down in case of any collisions.
 
-***Exercise S. 2. 1:*** Implement a class for a hash table that uses chaining to avoid collisions with the algorithms insert(put), delete (remove), and search (get).
+**_Exercise S. 2. 1:_** Implement a class for a hash table that uses chaining to avoid collisions with the algorithms insert(put), delete (remove), and search (get).
 Solution: (there are many ways to do this, here is one example)
-
 
 ```python
 import random
 
 rand = int(random.random() * 10000000000000000)
 
-# For security purposes – each time the Python env is opened, a new
+# For security purposes – each time the python env is opened, a new
 # random number is used to encode the hashcode so no one can guess the hash of a key.
 
 class Node:
@@ -184,14 +182,14 @@ class HashTable:
        return str(hts)
 ```
 
-***Exercise S. 2.1:*** Why do we use a doubly linked list for chaining? Keep in mind the three algorithms we are optimizing for. 
-Answer: A doubly linked list makes deletion simpler, as we know from the linked lists lesson. 
-***Exercise S.2.2:*** Write in pseudocode the search algorithm for a chained hash table.  
+**_Exercise S. 2.1:_** Why do we use a doubly linked list for chaining? Keep in mind the three algorithms we are optimizing for.
+Answer: A doubly linked list makes deletion simpler, as we know from the linked lists lesson.
+**_Exercise S.2.2:_** Write in pseudocode the search algorithm for a chained hash table.  
 Answer: Locate $T[h(k0]$, which is a linked list. Search the linked list for a value with the key $k$
 
 Though insert and delete each still have time complexity $O(1)$, the search algorithm now has a more complicated time complexity. Here is an example of the search algorithm `chainSearch`, which would be called on the `LinkedList` stored in `T[h(k)]`:
 
-### Java
+### java
 
 ```java
 public String chainSearch(int k) {
@@ -208,7 +206,7 @@ public String chainSearch(int k) {
     }
 ```
 
-### Python
+### python
 
 ```python
 #Searches a Table with given inputs
@@ -237,7 +235,7 @@ First, the division method. In this method, we hash $k$ to the remainder of $\fr
 
 We can also use the multiplication method for assigning keys to slot. This method is more complex, and we define the function as such: $h(k) = m\lfloor kA \pmod{1} \rfloor$ where $A$ is a number such that $0 < A < 1$, and $m$ is the number of slots. In this method, the value of $m$ is less significant, but some values of $A$ maximise the probability of simple uniform hashing.
 
-***Exercise:*** Consider a hash table of size m= 100 and a corresponding hash function h(k)=kmod(m). Where would the keys 5928, 1001, and 154 be mapped?
+**_Exercise:_** Consider a hash table of size m= 100 and a corresponding hash function h(k)=kmod(m). Where would the keys 5928, 1001, and 154 be mapped?
 Answer: 28, 1, and 54.
 
 The shared downside of each of these strategies of making hash functions is that in each, a set of keys will always hash the same way. This means that for some data sets, the algorithms will always perform at the worst case scenario. We can solve this using universal hashing, a strategy in which we randomly choose a hash function from a pre-designed class of functions independently of the actual keys we are storing. Because we are selecting the hash function randomly, this strategy guarantees that we will have good average performance for any single input, and no input will always produce worst-case runtime.

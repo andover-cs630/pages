@@ -19,33 +19,32 @@ In addition to the root node, rooted trees consist of parents and sibling nodes.
 ![Demo Tree](https://i.ibb.co/Nj9tVc5/Image-3-Rooted-Trees-Blog-Post.png)
 
 1. a. Which node is the root?
-b. Which nodes are the children of the root?
-c. What is the parent of the node with a key of 5? 
-d. How many siblings does the node with a key of 11 have?
+   b. Which nodes are the children of the root?
+   c. What is the parent of the node with a key of 5?
+   d. How many siblings does the node with a key of 11 have?
 
 ![Demo Tree 2](https://i.ibb.co/kmRVrjy/Image-4-Rooted-Trees-Blog-Post.png)
 
 2. a. What is the root node?
-b. How many children nodes does 13 have?
-c. What node is the parent of 25?
-d. Does 86 have a parent node?
+   b. How many children nodes does 13 have?
+   c. What node is the parent of 25?
+   d. Does 86 have a parent node?
 
 ### Answers
 
 1. a. 12
-b. 23 and 17
-c. 23
-d. 1
-
+   b. 23 and 17
+   c. 23
+   d. 1
 
 1. a. 86
-b. 3
-c. 43
-d. No, the root does not have a parent node
+   b. 3
+   c. 43
+   d. No, the root does not have a parent node
 
-### Code Examples: Java
+### Code Examples: java
 
-```Java
+```java
 import java.util.ArrayList;
 ​
 public class treeNode {
@@ -111,7 +110,7 @@ public class rootedTree {
     //     for (int i = 0; i < a.size(); i++) {
     //         System.out.print(a.get(i).getKey() + " ");
     //     }
-    // } 
+    // }
 ​
     public treeNode getRoot() {
         return this.root;
@@ -151,17 +150,17 @@ public class rootedTree {
 ​
 ```
 
-### Code Examples: Python
+### Code Examples: python
 
-```Python
+```python
 switcher = 0
- 
+
 class Node:
    def __init__(self, data):
        self.data = data
        self.left = None
        self.right = None
-  
+
    #Inserts a node into the tree, alternating between the left and right sides
    def insert(self, newData):
        global switcher
@@ -176,7 +175,7 @@ class Node:
            else:
                switcher = 0
                self.right.insert(newData)
- 
+
    #Checks if a target int is part of a tree, prints the results
    def search(self, target):
        if self.data == target:
@@ -188,14 +187,14 @@ class Node:
               self.right.search(target)
            else:
                print("False")
-  
+
    def printTreeData(self):
        if self.left:
            self.left.printTreeData()
        print(self.data),
        if self.right:
            self.right.printTreeData()
- 
+
 root = Node(19)
 root.insert(12)
 root.insert(5)

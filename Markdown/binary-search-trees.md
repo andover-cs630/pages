@@ -23,7 +23,7 @@ The tree on the right is not a valid BST because the node with value 3 has a nod
 
 Instantiating a BST class:
 
-### Python
+### python
 
 ```py
 class Node:
@@ -194,7 +194,7 @@ private void transplant(BSTNode u, BSTNode v)
 
 Now that we have a transplant helper method, we can formally establish the delete method.
 
-_Recall from Object Oriented Programming: In languages like Java that are object heavy, helper methods are declared as private compared to public for data security._
+_Recall from Object Oriented Programming: In languages like java that are object heavy, helper methods are declared as private compared to public for data security._
 
 We need to form a delete method that can effectively handle each case. We need to first check to see if the node has no left child (Case 1 & 2). If that is not the case, we need to see if the node has a left child, but no right child (Case 2). If none of those are true, then the node must have two children. Then, we need to find the value in the right subtree that has the smallest value, which is the last left child of the right child of the node to be deleted. Once we find the smallest value, we can replace it with the node we are going to delete. The last thing we need to do is the formalities - setting the new children and parents of the nodes affected in the tree. This code example should help you visualize this process. If it helps, take the figure of the Binary Search Tree introduced earlier to trace this method through, or draw one on your own and test out all the cases.
 
