@@ -10,7 +10,7 @@ The motivation behind dynamic programming lies in a single idea—why do somethi
 
 To see a simple example of dynamic programming, we turn to the problem of finding the nth [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number). A naive way of approaching the problem is to use recursion. 
 
-```
+```python
 def fibonacci(n):
 	if n == 1:
 		return 1
@@ -20,7 +20,7 @@ def fibonacci(n):
 
 We see that each call to fibonacci (assuming that n does not equal 1) invokes two more calls to fibonacci, making time complexity grow exponentially. For large n, this is not ideal. What if, instead of using recursion, we used a bottom-up DP approach. 
 
-```
+```python
 def fibonacci(n):
 	fib = [1, 1]
 	for i in range(2, n + 1):
@@ -42,7 +42,7 @@ To see this in action, we’ll use top down with memoization in an example. Let�
 
 Our first line of offense would probably be to implement a recursive algorithm. 
 
-```
+```python
 def get_max(p, n):
     if n <= 0:
         return 0
@@ -62,7 +62,7 @@ For instance, a rod with length 10 will be split into 6 and 4 at some point. The
 
 This is where memoization comes into play. Memoization is a tactic that allows us to save certain values and use them if they are needed later in the recursion. In the rod example, we would save the maximum prices for sub-rods of various lengths, and when they are used to calculate the maximum lengths of longer rods, we can simply retrieve them via array access.
 
-```
+```python
 def get_max_with_memoization(p, n):
     r = [float('-inf')] * n
     return get_max_wm_aux(p, n, r)
