@@ -52,13 +52,13 @@ $≅ nlog_2(\frac{n}{e})$
 
 $= O(nlogn)$
 
-### examples
+## **S.3 Experiments with Merge Sort**
 
 Code implementation: In the following java and python code, we will be implementing merge sort and testing its average array accesses across different sizes of arrays to see its run time.
 
-#### java
+**Java:**
 
-```java
+```
 import java.io.*;
 
 public class BinarySearchTesting {
@@ -105,7 +105,8 @@ public class BinarySearchTesting {
 }
 ```
 
-```python
+**Python:**
+```
 import random
 # Algorithm to count to number of array accesses in binary search
 def countAccesses(x, target):
