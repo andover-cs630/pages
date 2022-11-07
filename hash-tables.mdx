@@ -245,26 +245,35 @@ One of the drawbacks of linear probing is that you can have a big part of your a
 
 > 1. Why do we use a doubly linked list for chaining? Keep in mind the three algorithms we are optimizing for.
 
-- A doubly linked list makes deletion simpler, as we know from the linked lists lesson.
+<details>
+    - A doubly linked list makes deletion simpler, as we know from the linked lists lesson.   
+</details>
 
 > 2. Write in pseudocode the search algorithm for a chained hash table.
 
-- Locate `T[h(k0]`, which is a linked list
-- Search the linked list for a value with the key $k$
+<details>
+    - Locate `T[h(k0]`, which is a linked list
+    - Search the linked list for a value with the key $k$   
+</details>
 
 > 3. Under the assumption of simple uniform hashing, what is the average run time of the search algorithm if it doesn’t find the element? Don't forget about the time to run the hash function!
 
-- $O(1+\propto)$. A key $k$ will have an equal chance of being in any of the $m$ slots, so the runtime is proportional to the time to traverse the list `T[h(k)]`, which will have expected length $\propto$. Thus, the time complexity is $O(\propto)$. Combined with the $O(1)$ time to compute the hash function, we get $O(1+\propto)$.
+<details>
+    - $O(1+\propto)$. A key $k$ will have an equal chance of being in any of the $m$ slots, so the runtime is proportional to the time to traverse the list `T[h(k)]`, which will have expected length $\propto$. Thus, the time complexity is $O(\propto)$. Combined with the $O(1)$ time to compute the hash function, we get $O(1+\propto)$. 
+</details>
 
 > 4. What about the average run time if it does?
 
-- $O(1+\propto)$ (see book for further explanation as to why and a proof on page 259)
-
-We conclude that the average run time in each of these cases is $O(1+\propto)$. This means that if the number of hash table slots $m$ is at least proportional to the number of elements $n$, meaning $n=O(m)$, then the time complexity of the search is constant, $O(1)$.
+<details>
+    - $O(1+\propto)$ (see book for further explanation as to why and a proof on page 259) 
+    - We conclude that the average run time in each of these cases is $O(1+\propto)$. This means that if the number of hash table slots $m$ is at least proportional to the number of elements $n$, meaning $n=O(m)$, then the time complexity of the search is constant, $O(1)$.
+</details>
 
 > 5. Consider a hash table of size $m= 100$ and a corresponding hash function $h(k) \equiv k \pmod{m}$. Where would the keys 5928, 1001, and 154 be mapped?
 
-- 28, 1, and 54
+<details>
+    - 28, 1, and 54
+</details>
 
 ---
 

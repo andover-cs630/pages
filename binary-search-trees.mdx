@@ -260,19 +260,22 @@ Voilà! We are finished with deletion!
 
 - Here is a possible solution in python:
 
-```py
-def sorted_array_to_BST(l):
-    if l is None:
-        return None
-    #find index of middle element
-    mid = len(l)//2
-    #starting BST in the middle of the sorted list
-    return_node = Node(l[mid])
-    #recursive calls to set root's left and right tree to the middle of each sublist
-    return_node.left = sorted_array_to_BST(l[:mid])
-    return_node.right = sorted_array_to_BST(l[mid+1:])
-    return return_node
-```
+<details>
+    ```py
+    def sorted_array_to_BST(l):
+        if l is None:
+            return None
+        #find index of middle element
+        mid = len(l)//2
+        #starting BST in the middle of the sorted list
+        return_node = Node(l[mid])
+        #recursive calls to set root's left and right tree to the middle of each sublist
+        return_node.left = sorted_array_to_BST(l[:mid])
+        return_node.right = sorted_array_to_BST(l[mid+1:])
+        return return_node
+    ```    
+</details>
+
 
 ### Challenge Questions
 
