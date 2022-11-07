@@ -256,7 +256,6 @@ One of the drawbacks of linear probing is that you can have a big part of your a
 
 ## Exercises
 
-<<<<<<< HEAD:hash-tables.mdx
 > 1. Why do we use a doubly linked list for chaining? Keep in mind the three algorithms we are optimizing for.
 
 <details>
@@ -271,11 +270,9 @@ One of the drawbacks of linear probing is that you can have a big part of your a
 </details>
 
 > 3. Under the assumption of simple uniform hashing, what is the average run time of the search algorithm if it doesn’t find the element? Don't forget about the time to run the hash function!
-=======
-> 1. Under the assumption of simple uniform hashing, what is the average run time of the search algorithm if it doesn’t find the element? Don't forget about the time to run the hash function!
->>>>>>> 22c2f44340bc7fc4adc5f38135fcc7da9a1579e9:Markdown/hash-tables.md
 
 <details>
+<summary>Answer</summary>
     - $O(1+\propto)$. A key $k$ will have an equal chance of being in any of the $m$ slots, so the runtime is proportional to the time to traverse the list `T[h(k)]`, which will have expected length $\propto$. Thus, the time complexity is $O(\propto)$. Combined with the $O(1)$ time to compute the hash function, we get $O(1+\propto)$. 
 </details>
 
