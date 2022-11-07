@@ -1,6 +1,6 @@
 ---
 title: Quicksort
-description: An article explaining quicksort and implementations of it in Java and Python.
+description: An article explaining quicksort and implementations of it in java and python.
 layout: "@main"
 ---
 
@@ -9,21 +9,24 @@ Quicksort works by partitioning an array based on an arbitrary element in the ar
 We can visualize this process with a tree-like structure as shown below in Figure S.1.
 
 ![7.1: Chart1](https://i.ibb.co/M6kby9t/table1.png)
->**Figure S.1**
 
-Then, each one-element subarray is placed back together. The single-digit array containing the value is placed at the beginning, followed by the $p$ element, and finally the array with the larger element. Note, on subarrays with a size of 1, this just creates an ordered array. With larger arrays, a recursive method is utilized, sorting subtrees from the bottom up, as seen by the diagram in figure S.2. QuickSort takes $O(n^2)$ in its worst case scenario, and in both its expected and best case QuickSort takes $O(n \log{n})$. 
+> **Figure S.1**
+
+Then, each one-element subarray is placed back together. The single-digit array containing the value is placed at the beginning, followed by the $p$ element, and finally the array with the larger element. Note, on subarrays with a size of 1, this just creates an ordered array. With larger arrays, a recursive method is utilized, sorting subtrees from the bottom up, as seen by the diagram in figure S.2. QuickSort takes $O(n^2)$ in its worst case scenario, and in both its expected and best case QuickSort takes $O(n \log{n})$.
 
 ![7.1: Chart1](https://i.ibb.co/d491L8r/table2.png)
->**Figure S.2**
 
-### Python
+> **Figure S.2**
+
+### python
+
 ```python
 def QuickSort(sub):
-    if len(sub) == 1: 
+    if len(sub) == 1:
         return [sub[0]]
     else:
         p_index = rd.randrange(0, len(sub), 1) // choose a random p
-        p = sub[p_index] 
+        p = sub[p_index]
         less = []
         more = []
         sort = [p]
@@ -62,8 +65,7 @@ The expected run-time for Quicksort is $O(n \log{n})$ with a randomized partitio
 
 ### Quicksort and Randomized Quicksort
 
-The only difference between Quicksort and Randomized Quicksort is how they determine the partitioned element. The bulk of the runtime of Quicksort is 
-
+The only difference between Quicksort and Randomized Quicksort is how they determine the partitioned element. The bulk of the runtime of Quicksort is
 
 ---
 
@@ -72,23 +74,14 @@ The only difference between Quicksort and Randomized Quicksort is how they deter
 **[We would probably get more question, but at the very least an answer for this one]**
 
 > When would QuickSort take $O(n^2)$ time to sort?
+
 - When the array is completely random
 - When the array is already in sorted order
-- When the partition is always the highest or lowest value 
+- When the partition is always the highest or lowest value
 - When the array is too big
 
 ## Sources
->**General:** https://www.youtube.com/watch?v=SLauY6PpjW4&ab_channel=HackerRank
 
->**Introduction to Algorithms, 3rd edition:** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf
+> **General:** https://www.youtube.com/watch?v=SLauY6PpjW4&ab_channel=HackerRank
 
-
-
-
-
-
-
-
-
-
-
+> **Introduction to Algorithms, 3rd edition:** https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf

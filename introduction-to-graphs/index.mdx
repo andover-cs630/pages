@@ -4,6 +4,8 @@ description: Article on graphs, edge direction and weight, and adjacency matrice
 layout: "@main"
 ---
 
+import CodePreview from '../../components/CodePreview.astro'
+
 Graphs represent things and their relationships to other things. In the language of [graph theory](https://www.tutorialspoint.com/graph_theory/graph_theory_introduction.htm), things are called nodes, and relationships between nodes are called edges. These structures are used to model many real-life systems, including road networks, protein interactions, and social networks. For example, on Instagram, users could be represented as nodes, and two friends could have an edge connecting them to represent their relationship.
 
 ![A network of buildings and roads represented as a graph](road-network.webp)
@@ -98,18 +100,12 @@ Then, please implement the below operations for each data structure:
 
 [//]: # (Comment: I think the solution display should be a separate component.)
 
-import { Code } from "astro/components"
 import adjMatJava from "./AdjacencyMatrix.java?raw"
 import adjListJava from "./AdjacencyList.java?raw"
 import adjMatPy from "./adjacency_matrix.py?raw"
 import adjListPy from "./adjacency_list.py?raw"
 
 <details>
-    Java:
-    <Code code={adjMatJava} lang="java" theme="one-dark-pro" />
-    <Code code={adjListJava} lang="java" theme="one-dark-pro" />
-    
-    Python:
-    <Code code={adjMatPy} lang="python" theme="one-dark-pro" />
-    <Code code={adjListPy} lang="python" theme="one-dark-pro" />
+    <CodePreview pythonCode={adjMatPy} javaCode={adjMatJava} />
+    <CodePreview pythonCode={adjListPy} javaCode={adjListJava} />
 </details>

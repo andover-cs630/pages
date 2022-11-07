@@ -6,7 +6,6 @@ layout: "@main"
 
 ## **S.1: Properties of Red-Black Trees**
 
-
 ![Red-Black Trees 1](https://i.ibb.co/tHLjBfh/Red-Black-Trees.png) <br />
 Figure S.1.1
 
@@ -18,6 +17,7 @@ Figure S.1.1
 Due to these rules, red-black trees tend to balance themselves, meaning that they have a similar depth across each simple path from root to leaf. This allows searching a red-black tree to be faster than that of a standard binary search tree.
 
 ## **S.2 Red-Black Tree Rotations**
+
 ![Red-Black Trees Rotation Gif](https://media.giphy.com/media/xlUrph1jk88MGODTSq/giphy.gif)
 
 Figure S.2.1
@@ -27,6 +27,7 @@ One important method for Red-Black trees are rotations, which changes the struct
 During left rotation, the root (aka the node that left rotate is called on) is replaced by the pivot (right child) at the root of the subtree. The pivot’s right child remains the same while the original root node becomes its left child. If the pivot had a left child before rotation, that left child becomes the right child of the now-rotated original root. Left rotation also assumes that the pivot (right child) of the root is not null, as the right child becomes the new root after rotation is complete. This process is exactly the same but symmetrical for right rotation.
 
 **_Java Implementation_**
+
 ```java
 //rotation method which is helpful for maintaining red-black properties after insertion
 //After left rotation, node y becomes the new root of the subtree with x as its left child. Y's left child becomes x's right child.
@@ -88,6 +89,7 @@ public void right_rotate(RedBlackNode x){
 ```
 
 **_Python Implementation_**
+
 ```python
 def rightrotate(self, node):
 x = node
@@ -100,7 +102,7 @@ root = False
             right = True
         elif(x.parent is None):
             root = True
-       
+
         temp = x.parent
         x.parent = y
         temp2 = y.right
@@ -151,6 +153,7 @@ Once the node has been inserted in the correct place, a call to a rebalancing me
 For simplicity's sake, we will refer to X’s parent as P, X’s grandparent as GP, and X’s uncle as U. First P’s color is checked. If it’s black, we do not have to do any further steps to modify the tree. If it’s red, however, we must check U’s color.
 
 If U is black, there are four potential cases:
+
 1. P is the left child of G and X is the left child of P (Known as the Left-Left case)
 2. P is the left child of G and X is the right child of P (Left-Right case)
 3. P is the right child of G and X is the right child of P (Right-Right case)
@@ -159,6 +162,7 @@ If U is black, there are four potential cases:
 In case one, P is made black, G is made red, and right rotation is done on G. In case two, left rotation is done on P, which creates a left-left case (aka case one), and the steps are repeated. For cases three and four, the steps are exactly the same with rotation in opposite directions.
 
 **_Java Implementation_**
+
 ```java
 public void rebalance(RedBlackNode x){
        //if x is the root, make x black
@@ -176,7 +180,7 @@ public void rebalance(RedBlackNode x){
            else {
                uncle = gp.right;
            }
- 
+
            //if x's uncle is red, change x's parent and uncle to black and gp to red, repeat rebalance with gp as x
            if (uncle.color == RED){
                x.parent.color = BLACK;
@@ -216,6 +220,7 @@ public void rebalance(RedBlackNode x){
 ```
 
 **_Python Implementation_**
+
 ```python
 def getUncle(self, node):
         gp = node.parent.parent
@@ -272,13 +277,13 @@ def getUncle(self, node):
             self.RLCase( node)#RL case
         self.root.color = 0
         #deleted the used null node
-       
+
         if (uisnull is not None):
             if (uisnull.parent.left == uisnull):
                 uisnull.parent.left = None
             else:
                 uisnull.parent.right = None
-       
+
     def repaint(self, node):
         if (node.parent is None):
             node.color = 0
@@ -296,11 +301,13 @@ def getUncle(self, node):
 ```
 
 ## **S.3 Red-Black Tree Deletion**
+
 Red-Black Tree deletion follows the same procedure as BST deletion, followed by a set of rules to repaint the tree.
 
 If the deleted node was black, then the child that has succeeded the deleted node is painted black. Otherwise, the child’s color is left untouched.
 
 **_Java Implementation_**
+
 ```java
 //Function to delete a node from the tree
    public void case1delete(RedBlackNode node){
@@ -342,7 +349,7 @@ If the deleted node was black, then the child that has succeeded the deleted nod
            }
        }
    }
- 
+
    public void delete(int target){
        RedBlackNode node = searchNode(root, target);
        if (node.left == this.NIL || node.left == null || node.right == this.NIL || node.right == null){
@@ -356,7 +363,7 @@ If the deleted node was black, then the child that has succeeded the deleted nod
            case1delete(s);
        }
    }
- 
+
    private RedBlackNode getinorderSuccessor(RedBlackNode node){
        if (node.right != null && node.right != this.NIL){
            RedBlackNode successor = inOrderTraversal(node.right);
@@ -367,7 +374,7 @@ If the deleted node was black, then the child that has succeeded the deleted nod
            return successor;
        }
    }
- 
+
    private RedBlackNode inOrderTraversal(RedBlackNode node){
        if (node != this.NIL && node != null){
            RedBlackNode left = inOrderTraversal(node.left);
@@ -380,7 +387,7 @@ If the deleted node was black, then the child that has succeeded the deleted nod
        }
        return this.NIL;
    }
- 
+
    private RedBlackNode parentTraversal(RedBlackNode node){
        RedBlackNode p = node.parent;
        if (node == p.left){
@@ -393,7 +400,8 @@ If the deleted node was black, then the child that has succeeded the deleted nod
 ```
 
 **_Python Implementation_**
-```pythong
+
+```python
 def getinorderSuccessor(self, node):
         if (node.right is not None):
             succ = self.inordertrav(node.right)
@@ -402,7 +410,7 @@ def getinorderSuccessor(self, node):
             succ = self.parenttrav(node)
             return succ
     def case1delete(self, node):
-       
+
         p = node.parent
         right = False
         if (p.right == node):
@@ -463,9 +471,5 @@ S.3.2 - Is insertion have a longer run time in RB Trees than in BST? <br />
 Answer: Depends on the tree. BST insertion depends on height, and RB insertion depends on the log of total entries, so if the log of total entries of a tree is lower than the height, run time of insertion for a RB Tree will be faster.
 
 ## **Sources**
-> https://www.codesdope.com/course/data-structures-red-black-trees/
-> https://www.codesdope.com/course/data-structures-red-black-trees-insertion
-> https://www.geeksforgeeks.org/red-black-tree-set-2-insert/
-> https://en.wikipedia.org/wiki/Tree_rotation#/media/File:Tree_rotation_animation_250x250.gif
-> https://en.wikipedia.org/wiki/Tree_rotation
 
+> https://www.codesdope.com/course/data-structures-red-black-trees/ > https://www.codesdope.com/course/data-structures-red-black-trees-insertion > https://www.geeksforgeeks.org/red-black-tree-set-2-insert/ > https://en.wikipedia.org/wiki/Tree_rotation#/media/File:Tree_rotation_animation_250x250.gif > https://en.wikipedia.org/wiki/Tree_rotation

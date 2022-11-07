@@ -6,7 +6,7 @@ layout: "@main"
 
 If you don't want to create separate files for code and use MDX to insert them as components, you can also inline code snippets directly in Markdown. Astro uses Shiki to automatically style code blocks. [Themes](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes) can be configured in the `astro.config.mjs` file. The site currently uses the One Dark Pro theme and automatically formats all code for [languages supported by Shiki](https://github.com/shikijs/shiki/blob/main/docs/languages.md#all-languages).
 
-## Python
+## python
 
 ```py
 for _ in range(10):
@@ -77,7 +77,7 @@ ax.text3D((B1 + B2)[0], (B1 + B2)[1], (B1 + B2)[2], "B field")
 plt.show()
 ```
 
-## Java
+## java
 
 ```java
 public class Example {
@@ -91,7 +91,7 @@ public class Example {
 import java.util.concurrent.ThreadLocalRandom;
 
 public class FruitBasket {
-    /* 
+    /*
     start with a random number of apples from 1 to 10
     from https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java/363692#363692
     */

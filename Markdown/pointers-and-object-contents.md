@@ -6,7 +6,7 @@ layout: "@main"
 
 ## **S.1: Pointers and Objects**
 
-Pointers play a significant role in the internal processing of many languages by storing the addresses of objects directly in the computer’s memory. In Java, for example, when a variable type stores a reference to an object, the pointer holds the address of the object. Though in many languages like Java or Python, we need not worry about pointers and objects as the computer automatically follows the pointers stored in reference variables to find the object in memory. However, in lower-level programming languages that do not automate the process, such as C++, we can implement various linked data structures without pointer data types to handle tasks that normally require pointers.
+Pointers play a significant role in the internal processing of many languages by storing the addresses of objects directly in the computer’s memory. In java, for example, when a variable type stores a reference to an object, the pointer holds the address of the object. Though in many languages like java or python, we need not worry about pointers and objects as the computer automatically follows the pointers stored in reference variables to find the object in memory. However, in lower-level programming languages that do not automate the process, such as C++, we can implement various linked data structures without pointer data types to handle tasks that normally require pointers.
 
 We will be using this linked list for all of our following examples.
 
@@ -116,7 +116,7 @@ To continue exploring this topic, check out this video, **[here](https://drive.g
 
 > 2. In which language must we implement various linked data structures without pointer data types to handle tasks that normally require pointers?
 
-> 3. Code an implementation of the multiple array model with either Java or Python.
+> 3. Code an implementation of the multiple array model with either java or python.
 
 > 4. What do the prev and next values stored in the array representation of the linked list refer to?
 
