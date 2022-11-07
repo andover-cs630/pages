@@ -18,15 +18,22 @@ Any node without “children”, or nodes directly below it, is known as a leaf.
 
 1. What is the maximum height of a node in a heap with $n$ elements, in terms of $n$?
 
-**Answer:** $\lfloor \log_2 n \rfloor$
+<details>
+    - $\lfloor \log_2 n \rfloor$
+</details>
 
 2. What are the minimum and maximum numbers of elements in a heap with height $n$?
 
-**Answer:** The minimum is $2n$; the maximum is $2n+1 - 1$.
+<details>
+    - The minimum is $2n$; the maximum is $2n+1 - 1$.
+</details>
 
 3. What are the indices of the children of a node with index $n$?
 
-**Answer:** $2n$, $2n+1$
+<details>
+    - $2n$, $2n+1$
+</details>
+
 
 
 
@@ -78,7 +85,9 @@ for (int i = n/2; i >= 0; i--) {
 
 2. For an array with 5 elements, what is the maximum number of nodes visited while building a max-heap? How must the array be sorted to cause the worst case scenario?
 
-**Answer:** The maximum number of nodes visited is 3. The array must be sorted in increasing order.
+<details>
+    - The maximum number of nodes visited is 3. The array must be sorted in increasing order.
+</details>
 
 
 
@@ -103,7 +112,9 @@ for (int i = n; i > 0; i--) {
 
 1. Show that the time complexity of heapsort is $O(n \log n)$.
 
-**Answer:** We can divide the heapify to two tasks: “visiting” indexes $\lfloor \frac{1}{2} n \rfloor - 1, \lfloor \frac{1}{2} n \rfloor - 2, \dots, 0$ and all the recursion that goes on during each visit. The first part has time complexity $O(n)$ (we ignore constants and coefficients) and the second has time complexity $O(\log n)$. Putting the two together, we find that the time complexity for heapsort is $O(n \log n)$.
+<details>
+    - We can divide the heapify to two tasks: “visiting” indexes $\lfloor \frac{1}{2} n \rfloor - 1, \lfloor \frac{1}{2} n \rfloor - 2, \dots, 0$ and all the recursion that goes on during each visit. The first part has time complexity $O(n)$ (we ignore constants and coefficients) and the second has time complexity $O(\log n)$. Putting the two together, we find that the time complexity for heapsort is $O(n \log n)$.
+</details>
 
 
 
