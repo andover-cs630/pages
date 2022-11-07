@@ -13,12 +13,12 @@ Linked lists are a linear data structure. Each element of a linked list stores a
 Unlike arrays, stacks, queues and other linear data structures, there is no overarching structure holding the elements of a linked list. Instead, accessing elements of a linked list involves traversing the structure via pointers to the next node starting from the head node.
 Some operations on linked lists are more efficient than arrays. Adding and deleting elements from an array involves moving each affected element to a new location in memory, which takes O(n) runtime. Inserting and deleting elements in a linked list only requires switching the Next pointers around to accommodate an extra node, which can also be done in O(n) runtime. This can be improved to constant time if the linked list is a Doubly Linked List.
 
-![Linked list 2](https://i.ibb.co/3kstB8h/Linked-List-2.png)
+![Linked list 2](https://i.ibb.co/HCjFbJ0/Linked-List-2.png)
 
 Linked lists are less efficient than arrays for getting elements by index. They also take up more memory than an array, since each node has to store data and a pointer to the next node.
 The linked list that we have been discussing so far has been a **_singly-linked list_**, meaning it can only be traversed in one direction. Below is a python implementation of a singly-linked list.
 
-###python
+### python
 
 ```python
 # Function to initialize the linked list object
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 out: 1, 2, 3
 ```
 
-###java
+### java
 
 ```java
 // Function to initialize the linked list object
@@ -54,7 +54,7 @@ class Node {
 
 In some instances, it can be helpful to have an overarching linked list class to keep the head well-defined. Though the algorithms in this article will be tailored to a node-based approach, an example of the linked list class is given below:
 
-###python
+### python
 
 ```python
 class Node:
@@ -90,9 +90,9 @@ if __name__ == '__main__':
 
 Unlike the singly-linked list, the doubly-linked list contains pointers to the previous node as well as the next node. Doubly-linked lists can be traversed in reverse order, which makes node deletion more efficient. However, it takes more memory to store a pointer to the previous node for every node.
 
-![Linked list 3](https://i.ibb.co/2M46ssv/Linked-List-3.png)
+![Linked list 3](https://i.ibb.co/S5V9srq/Linked-List-3.png)
 
-###python
+### python
 
 ```python
 class LinkedList(object):
@@ -104,7 +104,7 @@ class LinkedList(object):
 
 ```
 
-###java
+### java
 
 ```java
 class Node {
@@ -122,7 +122,7 @@ class Node {
 We will be moving into the essential methods for a linked list class, starting with searching a linked list! For each algorithm in this article, we strongly recommend you try **_programming each implementation on your own_** before we show you the solution.
 Given a linked list head node head and a target value target, return the node with data matching that of the target value.
 
-###python
+### python
 
 ```python
 def search(self, target):
@@ -139,7 +139,7 @@ def search(self, target):
         return self.next.search(target)
 ```
 
-###java
+### java
 
 ```java
 public LinkedListNode search(String target) {
@@ -158,7 +158,7 @@ public LinkedListNode search(String target) {
 ```
 
 If uncomfortable with recursion, here is an iterative implementation:
-
+### python
 ```python
 def search(self, target):
         cur = self
@@ -174,7 +174,7 @@ def search(self, target):
 
 The next method we will be implementing is the linked list insertion method. Given an existing linked list node _a_ and _a_ new node _b_ to be inserted after _a_, implement the method _a_.insert(_b_) such that _a_ -> _b_. (Hint: if the pre-existing linked list looks like a -> z, don’t forget to link a -> b -> z)
 
-###python
+### python
 
 ```python
 def insert(self, head):
@@ -192,7 +192,7 @@ def insert(self, head):
             head.next.prev = head
 ```
 
-###java
+### java
 
 ```java
 void add_notes (int data) {
@@ -213,9 +213,9 @@ void add_notes (int data) {
 
 The next method we will be programming is the node deletion method. Given an existing linked list _head_ node head and a value _target_ to be removed from the linked list, successfully delete the first node with a data value matching _target_ from the linked list.
 
-![Linked list 4](https://i.ibb.co/Q6CtQ7h/Linked-List-4.png)
+![Linked list 4](https://i.ibb.co/kHgp1yn/Linked-List-4.png)
 
-###python
+### python
 
 ```python
 def delete(self, LL):
@@ -248,7 +248,7 @@ def delete(self, LL):
                 self.next = self.next.next
 ```
 
-###java
+### java
 
 ```java
 void delete (int data) {
@@ -270,7 +270,7 @@ void delete (int data) {
 
 Finally, it would be nice to have a way to check whether we have made the correct changes to our linked list after each operation. Create a way to print out the contents of a linked list given a head node _head_.
 
-###python
+### python
 
 ```python
 def print_list(self):
@@ -280,7 +280,7 @@ print(cur.data)
 cur = cur.next
 ```
 
-###java
+### java
 
 ```java
 void int print(Node head) {
@@ -346,7 +346,7 @@ Video We Made to Help Explain Linked List:
 
 More linked list problems:
 
-> https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
+>https://practice.geeksforgeeks.org/explore?page=1&category[]=Linked%20List&sortBy=submissions
 
 ---
 
