@@ -6,6 +6,38 @@ layout: "@main"
 
 ## **Prerequisites**
 ### Algorithms:
+#### Arrays and Lists:
+
+Arrays are groups of items of the same type arranged sequentially. A list is similar to an array, except the items may be of different types. In both arrays and lists, each item in an array has an index, which refers to its position in the sequence. 
+
+In Java, arrays must be initialized with a predetermined length, which cannot be changed. Arrays do not exist in Python. Lists in Python may be of any length, which can be changed. Java has a data structure called an ArrayList, which is an array that may have its length changed.
+
+Arrays and lists are zero-indexed in both Python and Java, meaning the first item in an array or list has an index of 0, and not 1.
+
+##### Initializing Arrays, Lists, and ArrayLists
+##### Java
+
+```java
+//Initializing an array of type int and of length 10. (static array)
+int[] array = new int[10];
+
+//Initializing an ArrayList of type int. (ArrayList)
+ArrayList<Integer> array = new ArrayList<Integer>();
+```
+
+As you see in the ArrayList with Java (compared to the array), you’ll notice that the ArrayList is an object and has to be instantiated with the ‘new’ keyword. Unlike the static array, the ArrayList is dynamic, meaning that you do not have to define a size when it is created. You can add and delete elements wherever you choose to in the array. More examples of ArrayList operations can be found through this [W3 Schools Article](https://www.w3schools.com/java/java_arraylist.asp "W3 Schools Article") as well as the [Java documentation](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html "Java documentation") for the ArrayList class.
+
+##### Python
+```python
+#Initializing a list.
+list = []
+
+#Initializing a list with some items in it.
+list = [0, 'a', 3.14, False]
+```
+
+Unlike Java, arrays, or lists, in Python do not have to be created with a pre-declared size. You can learn more about arrays in Python through this [W3 Schools Article](https://www.w3schools.com/python/python_lists.asp "W3 Schools Article") and the [Python documentation](https://docs.python.org/3/tutorial/datastructures.html "Python documentation").
+
 #### Bubble Sort:
 The bubble sort is known as the ‘classic’ method of sorting when it comes to arrays. It is often the first method of sorting that is introduced because of its ease to understand conceptually. When you imagine sorting an array, you might imagine putting the largest element at the end, smallest element at the front, or comparing the element to the one next to it to see which belongs at which end (greater or smaller). The latter method is the same idea behind the bubble sort.
 
