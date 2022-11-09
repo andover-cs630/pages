@@ -112,6 +112,8 @@ bfs("9", graph1)
 
 ## S.4 - Shortest Paths
 
+Finding the shortest distance between two points on a graph is a common and useful property. The motivation is simple: oftentimes, we want to see how quickly we can get from one place to another. A famous shortest-path problem is the Travelling Salesman problem, which asks for the shortest path that covers all points given. There are many algorithms through which we can find a shortest path, such as the Breadth First Search, Bellman-Ford, Dijkstra's, and Floyd-Warshall Algorithms. Each algorithm takes varying amounts of time to complete, and has its own use case. Let’s get into it.
+
 ### S.4.1 - Breadth First Search
 
 ![Figure S.4.1.1](https://i.ibb.co/hsFkG3N/chart2.png)
