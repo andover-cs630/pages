@@ -87,27 +87,88 @@ bfs("9", graph1)
 ---
 
 ## S.3 - Minimum Spanning Tree
+Minimum spanning trees (MST) are a form of connected, edge-weighted undirected graph that connects all vertices. The term “spanning tree” means that the sum of all edge weights is as small as possible. That is, “minimum spanning” means that it covers all nodes in the least amount of time, and “tree” means that a MST is acyclic. MSTs have applications in logistics and infrastructure, where it is important to determine connections between nodes that would “cost” the least.
 
-### S.3.1 - Kruskal’s Algorithm
+Suppose you run a snow plowing company, and you’ve been contracted by the city to clear the streets. There are n buildings with m roads, and your job is to make sure that all the buildings are reachable to another. However, the goal is to spend the least amount of money in the shortest amount of time (i.e. to be the most efficient), so the question is how do we minimize the number of roads cleared?
 
-> https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
+The above question is an example of the Minimum Spanning Tree problem. More formally, this task can be rephrased as:
 
-> https://cp-algorithms.com/graph/mst_kruskal.html
+Given a weighted, undirected graph G with n vertices and m edges, find a spanning tree (a set of edges in the graph that covers all nodes and is acyclic) that minimizes the total sum of edge weights.
 
-> https://usaco.guide/gold/mst
+Note:
+As a review, an edge-weight is a value put on the edge connecting 2 nodes that can represent, for example, the cost of traversing that edge. For example, a road that is heavily blocked by snow may have higher edge weight. An undirected graph is where the edges do not have a specific direction to traverse it in—instead, it supports any direction with the same edge-weight cost.
 
-> https://www.youtube.com/watch?v=JZBQLXgSGfs
+### S.3.1 - Fundamental Properties
+All MSTs have a few fundamental properties: possibly multiplicity, uniqueness, minimum-cost subgraph, cyclicity, cuts, minimum-cost edge, and contraction.
+
+Possible multiplicity is when the tree has multiple ways of drawing the edges with the same minimum edge-cost values. On the other hand, the mutually exclusive uniqueness property is defined by the CLRS as “if each edge has a distinct weight then there will be only one, unique minimum spanning tree. While this may seem pedantic, it is more common than you think. If all the edge weights are distinct we hope to have a series of connections and groups of edges that create the most optimal spanning tree.
+
+The minimum-cost subgraph property ensures that any subgraph you take from the graph (a smaller group of nodes) is still at a minimum cost. The rest of the properties are beyond the scope of this textbook, but you can find more information about them in the textbook _Introduction to Algorithms_.
+
+There are two classical algorithms for this task.
 
 ### S.3.2 - Prim’s Algorithm
 
-> https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+Using Prim’s Algorithm, we build the MST by adding an edge at a time. In the beginning, our spanning tree contains a single, randomly-chosen node. Then, the minimum outgoing edge is selected and added. Our spanning tree now has 2 vertices. Select and add the next edge with minimum weight that has one end in a visited vertex and the other in an unvisited one. We continue until all n-vertices have been reached. The time complexity of this algorithm is O(m log n).
 
-> https://cp-algorithms.com/graph/mst_prim.html
+We might summarize this process as:
 
+   1) Initialize the spanning tree with random vertex
+   1) While not all vertices have been reached:
+
+       a) Select minimum weight outgoing edge
+
+       b)Add outgoing edges to min heap for querying
+
+_Runtime Analysis:_ Worst case scenario, our outer loop must go through all E edges, in each of which we query the minimum outgoing edge in O(V). Thus, the overall time complexity is O(E log V)
+
+### S.3.3 - Kruskal’s Algorithm
+Here, we build the MST by merging subtrees. To perform each merge efficiently, we rely on a prerequisite data-structure called Disjoint Set Union, which finds and unions sets in O(1).
+
+All edges are first sorted in nondecreasing order. Then, we pick each edge, and if the ends are in different subtrees, we use that edge to merge these trees. We continue this process until all nodes belong in the same subtree.
+
+We might summarize this process as:
+
+1) All nodes start as individual subtrees
+2) While not all vertices have been reached:
+
+      a) Select minimum weight outgoing edge
+
+      b) Add outgoing edges to min heap for querying
+
+_Runtime Analysis:_ Worst case scenario, we must try using all edges and union in O(1), so step 2 runs in O(E). However, the initial sort of all edges by nondecreasing weight will take O(E log E), taking the entire process to that time complexity.
+
+### Exercises
+1) Suppose we run Dijkstra and Prim’s algorithms from vertex v in graph g. They both return trees (the shortest path from v to every other node and the minimum spanning tree, respectively). What is the difference between those results?
+
+    Answer: The minimum spanning tree hopes to minimize the total sum of distances, whereas the shortest path tree minimizes the distance from v to each node. These differing goals might return different results. For example,
+
+![minimum spaning tree](https://i.ibb.co/xF9hvW3/Minimum-Spanning-Tree.png)
+
+The shortest path from 0 to 1 is length 4 and the shortest path from 0 to 2 is length 4. Thus, the shortest path tree rooted at 0 uses the 0-2 edge and the 0-1 edge.
+
+The MST from 0 would use the edges 0-1 and 1-2. This tree spans the entire graph and minimizes the sum of weights, with a total of 5.
+
+   2) Though we computed Kruskal’s runtime to be O(E log E), it’s often written as O(E log V). Why?
+      
+        Answer: E is at most V^2; each node can have at most a connection with every other node. Since log (V^2) = log (V), O(E log E) can be rewritten as O(E log V). 
+
+### Resources
+> https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
+> 
+> https://cp-algorithms.com/graph/mst_kruskal.html
+> 
 > https://usaco.guide/gold/mst
-
+> 
+> https://www.youtube.com/watch?v=JZBQLXgSGfs
+> 
+> https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+> 
+> https://cp-algorithms.com/graph/mst_prim.html
+> 
+> https://usaco.guide/gold/mst
+> 
 > https://www.youtube.com/watch?v=jsmMtJpPnhU
-
 ---
 
 ## S.4 - Shortest Paths
