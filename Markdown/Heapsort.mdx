@@ -52,7 +52,8 @@ int n=arr.length-1;
             heapify(arr, n, i);   }
 ```
 
-![Heapify](https://i.ibb.co/g7YcxyG/Heapify-Chart-2-Heap-Sort.png)
+![Heapify](https://i.ibb.co/B6LrNzC/Building-A-Heap-1.png
+)
 
 > Figure 6.2
 
@@ -60,7 +61,7 @@ int n=arr.length-1;
 
 ## **S.4 The Heapsort Algorithm**
 
-Once the heap is constructed, the heapsort algorithm begins. The root of the heap is exchanged with the last element in the heap, and the size of the heap is reduced by one. This essentially removes sorted elements from the heap, splitting the array into sorted and unsorted sections. The heapifying procedure is repeated with all the elements that remain in the heap, the root is swapped with the last element in the heap, and this process continues until the heap has size 0. Heapsort has a number of advantages over other algorithms. First, it sorts in place, meaning it doesn’t require more memory to be allocated. Second, although it is, on average, slower than other algorithms like quicksort, its worst-case runtime is faster because it has a time complexity of $O(n log(n))$.
+Once the heap is constructed, the heapsort algorithm begins. The root of the heap is exchanged with the last element in the heap, and the size of the heap is reduced by one. This essentially removes sorted elements from the heap, splitting the array into two sections: the heap and unsorted sections. The heapifying procedure is repeated with all the elements that remain in the heap, the root is swapped with the last element in the heap, and this process continues until the heap has size 0. Heapsort has a number of advantages over other algorithms. First, it sorts in place, meaning it doesn’t require more memory to be allocated. Second, although it is, on average, slower than other algorithms like quicksort, its worst-case runtime is faster because it has a time complexity of $O(n log(n))$.
 ### java
 
 ```java
