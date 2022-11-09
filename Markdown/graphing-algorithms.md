@@ -18,7 +18,7 @@ Graphically, the “start” of the maze would be analogous to some “start” 
 
 > **Figure S.2.1.1**
 
-In this example, let the “start” node be 9. Depth first search would first arbitrarily choose a child node, say 89. Then, it goes and visits nodes 23, 7, and 15, completing the search of that subtree. It then backtracks to node 9 and checks out the child node, 64.
+In this example, let the start node be 9. Like in the maze, we choose an arbitrary direction to move towards. In this case, let’s choose downwards. This would mean we visit node 89. We continue, visiting node 7. Now we have hit a “deadend” in our “maze,” so we back up to 89, and arbitrarily choose a different direction. Let’s say we choose left, which means we visit node 23. Again we have hit a deadend so we back up to node 89, and now choose a different direction. This time there is only one direction left, right. We visit node 15. Notice how our order so far is 9 → 89 → 7 → 23 → 15. However, we have hit another deadend at node 23. Now, we travel back to node 9, and choose a different direction, which would be left. This is the last node we visit, node 64. Our final order of traversal is 9 → 89 → 7 → 23 → 15 → 64.
 
 ```py
 def dfs(current, graph):
