@@ -6,7 +6,7 @@ layout: "@main"
 
 ## S.2 - Elementary Algorithms
 
-Now that we have an idea of what graphs are and how to represent them, we can get into a few graph algorithms.
+Now that we have an idea of [what graphs are](/introduction-to-graphs) and [how to represent them](/introduction-to-graphs/#representation-of-graphs), we can get into a few graph algorithms.
 
 ### S.2.1 - Depth First Search
 
@@ -44,7 +44,7 @@ dfs("9", graph1)
 
 ### S.2.2 - Breadth First Search
 
-Like its counterpart DFS, breadth first search also seeks to explore every node of a graph. However, the way BFS goes about things is different in that it “prioritizes” breadth over depth.
+Like its counterpart [DFS](/Markdown/graphing-algorithms#s21---depth-first-search), breadth first search also seeks to explore every node of a graph. However, the way BFS goes about things is different in that it “prioritizes” breadth over depth.
 
 Referencing **Figure S.2.1.1**, BFS would start at some “start” node, presumably 9 as this graph is oriented. It would then choose one of its child nodes, say 89. Then, instead of looking at that node’s children, BFS would backtrack and explore 9. Only after then does BFS look at 23, 7, and 15.
 
@@ -126,7 +126,7 @@ Suppose we are looking for the shortest path between nodes 0 and 5 in the above 
 3. Next, we move through 1 and 2’s outgoing edges to 2, 3, and 4. We’ve already visited 2, which means that particular path is late and not optimal. We haven’t been to nodes 3 and 4, however, so those shortest paths are length 2.
 4. Finally, we move through 3 and 4’s outgoing edges to node 5. The shortest path between nodes 0 and 5 is therefore clearly 3.
 
-This process, of constantly expanding unless you’ve been there before, might seem familiar. That’s because its the equivalent of BFS.
+This process, of constantly expanding unless you’ve been there before, might seem familiar. That’s because its the [equivalent of BFS](/Markdown/graphing-algorithms#s22---breadth-first-search).
 
 **More clearly, we can use BFS to find the shortest path on unweighted graphs.** The graphs must be unweighted because we rely on the assumption that once we visit a node, the path we used is the shortest possible. This allows us to continually traverse the graph in $O(N)$ time, instead of having to backtrack and consider other paths. This key assumption cannot be guaranteed when edge weights are not one, as illustrated by the below diagram.
 
@@ -200,7 +200,7 @@ print(bellmanford(g, w, "A"))
 
 ### S.4.3 - Dijkstra’s Algorithm
 
-For graphs with nonnegative weights, we can use Dijkstra’s Algorithm, which has a better time complexity than Bellman Ford. Recall BFS or DFS where a collection of “explored” nodes was kept. A similar concept is employed in Dijkstra: $V$, the set of all nodes, is comprised of subsets $Q$ and $S$. Subset $S$ is just a collection of explored nodes while node $Q$ is a min-priority queue, ordered by distance from the start node.
+For graphs with nonnegative weights, we can use Dijkstra’s Algorithm, which has a better time complexity than Bellman Ford. Recall BFS or DFS where a collection of “explored” nodes was kept. A similar concept is employed in Dijkstra: $V$, the set of all nodes, is comprised of subsets $Q$ and $S$. Subset $S$ is just a collection of explored nodes while node $Q$ is a [min-priority queue](/Markdown/Heapsort#s3-building-a-heap), ordered by distance from the start node.
 
 Dijkstra starts by looking at the start node and taking note of the distances of its adjacent nodes. As a result, the start node is added to $S$ and its adjacent nodes are added to $Q$, sorted increasingly. As this is the first iteration, relaxing the path doesn’t really change anything. The node with the shortest distance from the start node is then taken into consideration. It is first added to $S$ while the distance between it and its adjacent nodes is relaxed. The process continues, referring to the top of $Q$ for the next node to be looked at.
 

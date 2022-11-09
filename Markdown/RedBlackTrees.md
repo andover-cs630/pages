@@ -14,7 +14,7 @@ Figure S.1.1
 3. If a node is red then both of its children have to be black
 4. Every simple path from any node to their leaves, that is the shortest path from the node to their leaves, contains the same amount of black nodes
 
-Due to these rules, red-black trees tend to balance themselves, meaning that they have a similar depth across each simple path from root to leaf. This allows searching a red-black tree to be faster than that of a standard binary search tree.
+Due to these rules, red-black trees tend to balance themselves, meaning that they have a similar depth across each simple path from root to leaf. This allows searching a red-black tree to be faster than that of a [standard binary search tree](/Markdown/binary-search-trees).
 
 ## **S.2 Red-Black Tree Rotations**
 
@@ -146,7 +146,7 @@ root = False
 
 ## **S.3 Red-Black Tree Insertion**
 
-An essential operation of a Red-Black Tree is insertion, or adding a node into the tree. There are many techniques for Red-Black Tree insertion, but the method you will see here is normal binary search tree insertion with the caveat that all newly inserted nodes are red, followed by “repainting” or “rebalancing” to restore RB Tree properties.
+An essential operation of a Red-Black Tree is insertion, or adding a node into the tree. There are many techniques for Red-Black Tree insertion, but the method you will see here is [normal binary search tree insertion](/Markdown/binary-search-trees#insertion) with the caveat that all newly inserted nodes are red, followed by “repainting” or “rebalancing” to restore RB Tree properties.
 
 Once the node has been inserted in the correct place, a call to a rebalancing method is made to maintain RB Tree properties. This rebalancing method checks the newly inserted node, X, against its family nodes (its parent, its grandparent, and its uncle) to decide how to modify the tree.
 
@@ -300,9 +300,9 @@ def getUncle(self, node):
                     self.checkInsertionCase(node)
 ```
 
-## **S.3 Red-Black Tree Deletion**
+## **S.4 Red-Black Tree Deletion**
 
-Red-Black Tree deletion follows the same procedure as BST deletion, followed by a set of rules to repaint the tree.
+Red-Black Tree deletion follows the same procedure as [BST deletion](/Markdown/binary-search-trees#deletion), followed by a set of rules to repaint the tree.
 
 If the deleted node was black, then the child that has succeeded the deleted node is painted black. Otherwise, the child’s color is left untouched.
 

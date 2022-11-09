@@ -6,7 +6,7 @@ layout: "@main"
 
 ## **S.1 Search Algorithms**
 
-To define the lower bounds of searching and sorting, we will look at this concept through the comparison model. This model defines every input as a black box data type, restricting the operations on that data type to comparisons (only, =, <, >, <=, >=). In this model, the only way to evaluate inputs is through comparisons (think of merge sort and heap sort). To measure the time cost in this model, we will count the number of comparisons made in the sorting or searching algorithms.
+To define the lower bounds of searching and sorting, we will look at this concept through the comparison model. This model defines every input as a black box data type, restricting the operations on that data type to comparisons (only, =, <, >, <=, >=). In this model, the only way to evaluate inputs is through comparisons (think of merge sort and [heapsort](/Markdown/Heapsort)). To measure the time cost in this model, we will count the number of comparisons made in the sorting or searching algorithms.
 
 This model allows us to use a decision tree—containing all possible comparisons, outcomes, and answers to a problem of any size—to model searching algorithms.
 
@@ -58,7 +58,7 @@ Code implementation: In the following java and python code, we will be implement
 
 **Java:**
 
-```
+```java
 import java.io.*;
 
 public class BinarySearchTesting {
@@ -106,7 +106,7 @@ public class BinarySearchTesting {
 ```
 
 **Python:**
-```
+```python
 import random
 # Algorithm to count to number of array accesses in binary search
 def countAccesses(x, target):

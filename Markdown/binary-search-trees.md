@@ -6,13 +6,13 @@ layout: "@main"
 
 ## **S.1 Introduction - what is a binary search tree**
 
-A Binary Search Tree (BST) is a binary tree with a set of extra properties.
+A Binary Search Tree (BST) is a binary [tree](/Markdown/rooted-trees "Rooted Trees Article") with a set of extra properties.
 
 1. The left tree of a node may only contain nodes with values lesser than the parent node’s value
 2. The right tree of a node may only contain nodes with values greater than the parent node’s value
 3. Each subtree of a node must also be a Binary Search Tree
 
-The Binary Search Tree gets its name from its efficient search algorithm which can be executed in $~O(log(n))$ time complexity.
+The Binary Search Tree gets its name from its efficient [search algorithm](/Markdown/lower-bounds-of-sorting#s1-search-algorithms "Search Algorithms Article") which can be executed in $~O(log(n))$ time complexity.
 
 The binary tree on the left is a valid BST.
 The tree on the right is not a valid BST because the node with value 3 has a node with a lesser value in its right subtree.
@@ -39,7 +39,7 @@ Notably, none of the features that differentiate a BST from a binary tree are pr
 
 ## **S.2 The Methods of a Binary Search Tree**
 
-One merit of the Binary Search Tree is its ability to search for a value in O(h) time complexity – h being the height of the tree. In the best case, h is roughly equal to log2n, since a Binary Search Tree branches out by a factor of two. A BST with three nodes could have a height of two or a height of three depending on the values of the nodes.
+One merit of the Binary Search Tree is its ability to search for a value in O(h) time complexity – h being the height of the tree. In the best case, h is roughly equal to $\log_2(n)$, since a Binary Search Tree branches out by a factor of two. A BST with three nodes could have a height of two or a height of three depending on the values of the nodes.
 
 ![Image S.2.1](https://i.ibb.co/FJHwvTd/chart3.png)
 
@@ -47,7 +47,7 @@ One merit of the Binary Search Tree is its ability to search for a value in O(h)
 
 In order to perform the search algorithm, one needs to properly leverage the properties of the BST.
 
-Given a target value, simply compare the target with the value of the root (top) of the tree. If the target is greater than the root, move down to the right subtree which has larger value nodes. If the target is less than the current node, move down to the left subtree which has lesser value nodes. Repeat this process until the target matches the current node or the target is not found. This can be done recursively or iteratively. Here’s is an example of a recursive solution
+Given a target value, simply compare the target with the value of the root (top) of the tree. If the target is greater than the root, move down to the right subtree which has larger value nodes. If the target is less than the current node, move down to the left subtree which has lesser value nodes. Repeat this process until the target matches the current node or the target is not found. This can be done recursively or iteratively. Here’s is an example of a recursive solution:
 
 ```py
 def search(self, target):
@@ -136,15 +136,15 @@ Deleting from a binary search tree is very different from any other data structu
 
 > Deleting a leaf, or a node with no children.
 
-- This can be accomplished by removing its parent and replacing it with its child, setting the child to be null.
+This can be accomplished by removing its parent and replacing it with its child, setting the child to be null.
 
 > Deleting a node with one child.
 
-- This can be accomplished by placing the child on the node to be deleted.
+This can be accomplished by placing the child on the node to be deleted.
 
 > Deleing a node with two children.
 
-- This can be accomplished by finding the node’s parent and replacing the node to be deleted with its parent. This case is complicated the right-left child orientation matters.
+This can be accomplished by finding the node’s parent and replacing the node to be deleted with its parent. This case is complicated the right-left child orientation matters.
 
 #### **Case 1**
 
@@ -176,14 +176,14 @@ The transplant method is equipped to replace the subtree rooted at u with the su
 ```java
 private void transplant(BSTNode u, BSTNode v)
 {
-//1        if(u.getParent() == null)
-//2            root = v;
-//3        else if(u == u.getParent().getLeft())
-//4            u.getParent().setLeft(v);
-//5        else
-//6            u.getParent().setRight(v);
-//7        if(v != null)
-//8            v.setParent(u.getParent());
+        if(u.getParent() == null)
+            root = v;
+        else if(u == u.getParent().getLeft())
+            u.getParent().setLeft(v);
+        else
+            u.getParent().setRight(v);
+        if(v != null)
+            v.setParent(u.getParent());
 }
 ```
 
@@ -201,25 +201,25 @@ We need to form a delete method that can effectively handle each case. We need t
 ```java
 public void delete(BSTNode x)
 {
-//1        if(x.getLeft() == null)
-//2            transplant(x,x.getRight());
-//3        else if(x.getRight() == null)
-//4            transplant(x,x.getLeft());
-//5        else
-//6        {
-//7            BSTNode y = x.getRight();
-//8            while(y.getLeft() != null)
-//9                y = y.getLeft();
-//10           if(y != x.getRight())
-//11           {
-//12               transplant(y,y.getRight());
-//13               y.setRight(x.getRight());
-//14               y.getRight().setParent(y);
-//15           }
-//16           transplant(x,y);
-//17           y.setLeft(x.getLeft());
-//18           y.getLeft().setParent(y);
-//19       }
+        if(x.getLeft() == null)
+            transplant(x,x.getRight());
+        else if(x.getRight() == null)
+            transplant(x,x.getLeft());
+        else
+        {
+            BSTNode y = x.getRight();
+            while(y.getLeft() != null)
+                y = y.getLeft();
+           if(y != x.getRight())
+           {
+               transplant(y,y.getRight());
+               y.setRight(x.getRight());
+               y.getRight().setParent(y);
+           }
+           transplant(x,y);
+           y.setLeft(x.getLeft());
+           y.getLeft().setParent(y);
+       }
 }
 ```
 
@@ -252,7 +252,7 @@ Voilà! We are finished with deletion!
 
   ![Solution 1.1](https://i.ibb.co/dgQd3PP/chart7.png)
 
-  Does this remind you of a Linked List? If the user calls BST.search(1), the runtime will be $O(n)$ since the height of the BST = n. In order to balance the tree, one would have to recreate the insert method to balance the tree after each insertion. For more info, check out AVL trees or Red-Black Trees.
+  Does this remind you of a [linked list?](/Markdown/LinkedList "Linked List Article") If the user calls BST.search(1), the runtime will be $O(n)$ since the height of the BST = n. In order to balance the tree, one would have to recreate the insert method to balance the tree after each insertion. For more info, check out [Red-Black Trees](/Markdown/RedBlackTrees "Red-Black Trees Article").
 
 > 2. Given a sorted array l, convert l into a Binary Search Tree. For a secondary challenge, convert l into a height-balanced BST. This means that the height difference between each node’s left and right subtrees is never greater than one.
 
