@@ -38,7 +38,7 @@ We can also store objects with different numbers of attributes (heterogeneous ob
 
 To optimize storage with single or multiple arrays, we need a system for determining which objects are currently unused. This system is called the garbage collector.
 
-For example, when storing linked list objects with multiple arrays, we utilize a singly linked free list. Let m represent the number of storage spaces the list contains and let n represent the space used. Therefore, m - n will represent the free space. By storing these spaces in a free list, we can easily insert new elements into the multiple arrays. List implementations like PUSH and POP in stacks, may be used in the free list to allocate and free objects.
+For example, when storing [linked list](/Markdown/LinkedList "Linked List Article") objects with multiple arrays, we utilize a singly linked free list. Let m represent the number of storage spaces the list contains and let n represent the space used. Therefore, m - n will represent the free space. By storing these spaces in a free list, we can easily insert new elements into the multiple arrays. List implementations like PUSH and POP in [stacks](/Markdown/stacks "Stacks Article"), may be used in the free list to allocate and free objects.
 
 ### python:
 

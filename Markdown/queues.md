@@ -4,11 +4,11 @@ description: An article on queues, basic methods, and implementations in python 
 layout: "@main"
 ---
 
-## **Queues**
+## **S.1: Queues**
 
 Imagine you’re at a restaurant waiting for seating, purchasing movie tickets, or waiting in the lunch line—all these examples have one thing in common—the first person to enter the queue is the first person to exit the queue.
 
-Queues are a basic data structure that hold items, such as objects, to be processed later. By definition, queues are a linear data structure that are open at both ends — objects can be added at one end, and removed at another.
+Queues are a basic data structure that hold items, such as [objects](/Markdown/pointers-and-object-contents "Pointers and Objects Article"), to be processed later. By definition, queues are a linear data structure that are open at both ends — objects can be added at one end, and removed at another.
 
 Queues follow the FIFO method (First In, First Out) such that the first object added to the queue must be the first object removed from the queue. We can create a queue as an ordered list, where all insertions are made at one end, and all removals are made at the other end.
 
@@ -20,7 +20,7 @@ When working with queues, keep in mind that a queue should allow access to both 
 
 ## General Implementation
 
-Queues can be implemented in the form of an array with a pointer to both the front and back elements of the array. Multiple languages have queues as a defined data structure; in java for example, the Queue class can be imported from `java.util` and extends the `Collections` interface. Additionally, queues can be implemented using a `LinkedList` which is generally more efficient than an array implementation. This is because an array can grow, using table doubling—expanding the memory to prevent memory framgementation—whereas a `LinkedList` has fluid size. In regard to time complexity, either an Array or `LinkedList` implementation will have an $O(1)$ time complexity, if written well (as done below). In fact, it can be seen that in java, the `LinkedList` class implements the queue class. Therefore, a `LinkedList` is essentially an extension of the queue class.
+Queues can be implemented in the form of an array with a [pointer](/Markdown/pointers-and-object-contents "Pointers and Objects Article") to both the front and back elements of the array. Multiple languages have queues as a defined data structure; in java for example, the Queue class can be imported from `java.util` and extends the `Collections` interface. Additionally, queues can be implemented using a [`LinkedList`](/Markdown/LinkedList "LinkedList Article") which is generally more efficient than an array implementation. This is because an array can grow, using table doubling—expanding the memory to prevent memory fragmentation—whereas a `LinkedList` has fluid size. In regard to time complexity, either an Array or `LinkedList` implementation will have an $O(1)$ time complexity, if written well (as done below). In fact, it can be seen that in java, the `LinkedList` class implements the queue class. Therefore, a `LinkedList` is essentially an extension of the queue class.
 
 ### Important Characteristics
 

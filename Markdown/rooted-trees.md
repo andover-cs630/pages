@@ -6,7 +6,7 @@ layout: "@main"
 
 ## **Rooted Trees**
 
-A rooted tree is a tree that contains one node, or object, designated to be at the beginning, often referred to as the head or root of the tree. If you are unfamiliar with trees, they are a data structure in which objects are linked together by edges, which are often implemented as pointers. Each node of a tree thus contains a key, which represents that specific node’s data, as well as links, which point to connected nodes and form the tree’s edges. Links are traditionally either upwards or downwards on the tree.
+A rooted tree is a tree that contains one node, or [object](/Markdown/pointers-and-object-contents "Pointers and Objects Article"), designated to be at the beginning, often referred to as the head or root of the tree. If you are unfamiliar with trees, they are a data structure in which objects are linked together by edges, which are often implemented as [pointers](/Markdown/pointers-and-object-contents "Pointers and Objects Article"). Each node of a tree thus contains a key, which represents that specific node’s data, as well as links, which point to connected nodes and form the tree’s edges. Links are traditionally either upwards or downwards on the tree.
 
 ![Node Diagram](https://i.ibb.co/nCzfZ6V/Image-1-Rooted-Trees-Blog-Post.png)
 

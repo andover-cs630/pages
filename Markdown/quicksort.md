@@ -4,7 +4,7 @@ description: An article explaining quicksort and implementations of it in java a
 layout: "@main"
 ---
 
-Quicksort works by partitioning an array based on an arbitrary element in the array, which we will refer to as $p$. The array is divided into two subarrays, one which contains elements larger than $p$, and one which contains elements smaller than $p$. The operation is then repeated with each of the subarrays, with a new $p$ for each subarray, until the array is separated into sub-arrays with a designated length, usually 1.
+Quicksort works by partitioning an array based on an arbitrary element in the array, which we will refer to as $p.$ The array is divided into two subarrays, one which contains elements larger than $p$, and one which contains elements smaller than $p$. The operation is then repeated with each of the subarrays, with a new $p$ for each subarray, until the array is separated into sub-arrays with a designated length, usually 1.
 
 We can visualize this process with a tree-like structure as shown below in Figure S.1.
 

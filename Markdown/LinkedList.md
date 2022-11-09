@@ -6,11 +6,11 @@ layout: "@main"
 
 ## **S.1: Linked List**
 
-Linked lists are a linear data structure. Each element of a linked list stores a piece of data and a pointer which links to the next node.
+Linked lists are a linear data structure. Each element of a linked list stores a piece of data and a [pointer](/Markdown/pointers-and-object-contents "Pointers and Objects Article") which links to the next node.
 
 ![Linked list 1](https://i.ibb.co/YcL7hjc/Linked-List-1-3.png)
 
-Unlike arrays, stacks, [queues](https://pa-dsa.vercel.app/Markdown/queues) and other linear data structures, there is no overarching structure holding the elements of a linked list. Instead, accessing elements of a linked list involves traversing the structure via pointers to the next node starting from the head node.
+Unlike arrays, [stacks](/Markdown/stacks "Stacks Article"), [queues](/Markdown/queues "Queues Article") and other linear data structures, there is no overarching structure holding the elements of a linked list. Instead, accessing elements of a linked list involves traversing the structure via pointers to the next node starting from the head node.
 Some operations on linked lists are more efficient than arrays. Adding and deleting elements from an array involves moving each affected element to a new location in memory, which takes O(n) runtime. Inserting and deleting elements in a linked list only requires switching the Next pointers around to accommodate an extra node, which can also be done in O(n) runtime. This can be improved to constant time if the linked list is a Doubly Linked List.
 
 ![Linked list 2](https://i.ibb.co/HCjFbJ0/Linked-List-2.png)
