@@ -58,12 +58,19 @@ list = [[1, 2, 3, 4, 5], [6,  7, 8, 9, 10], [11, 12, 13, 14, 15]]
 Similar to the one-dimensional array, a size does not need to be declared in Python for a multidimensional array. You can see that it is still one list, but this time, the list is composed of lists inside the list itself. Each element in the list is also a list, creating a two dimensional aspect to it. So, if I wanted to access the number 6, it would be the first index of the list (remember, the indexes start at zero), and the zeroth index of the list at the first index. You can also picture it as a matrix. In the first row (zeroth index), I have a list with [1, 2, 3, 4, 5]. In my second row (first index), I have a list with [6, 7, 8, 9, 10], and the same with the third row (second index) with [11, 12, 13, 14, 15]. If I wanted to access the number 6, I would go to the first index and the zeroth index in that list.
 
 ***Question***: What is the difference between an array and a list?
+
 *Solution*: Arrays exist in Java, but not in Python. They serve the same purpose: to arrange items of the same type sequentially.
+
 ***Question***: What does zero-indexing entail?
+
 *Solution*: The first element in the array or list has an index of zero.
+
 ***Question***: What are multidimensional arrays?
+
 *Solution*: Arrays, or lists, within themselves, arranging elements in rows and columns. Practical examples include chess boards or matrices.
+
 ***Challenge Task***: Make a representation of a tic-tac-toe board with a 2D array or a 2D list.
+
 *Solution*: 
 list = $[[“X”,”O”,”X”],[“O”,”X”,”O”],[“X”,”O”,”X”]]$;
 
@@ -80,9 +87,9 @@ Let’s look into this with a smaller array.
 
 ![Bubble Sort Graphic 2, Part 1](https://i.postimg.cc/QtpD9fNf/Screen-Shot-2022-11-04-at-9-02-54-AM.png)
 
-![Bubble Sort Graphic 2, Part 2](https://i.postimg.cc/rp4KV6bb/Prereq-3.png)
+![Bubble Sort Graphic 2, Part 2](https://i.postimg.cc/HnKhZtkx/Prereq-3.png)
 
-![Bubble Sort Graphic 2, Part 3](https://i.postimg.cc/Sx3nbQZC/Prereq-4.png)
+![Bubble Sort Graphic 2, Part 3](https://i.postimg.cc/rpJYXTw7/Prereq-4.png)
 
 Here, you see the full bubble sort. For each iteration, we look at the element at the front (index 0) and compare it to the element next to it until we approach the area of the array that is already sorted. Notice that after the first iteration, the greatest element is at the end of the array, and after the second iteration, the two greatest elements are at the end in sorted order. Once we reach that point of the array, no more comparisons should be made (for efficiency, since that area is already sorted). Then, we can stop the iteration, return to the front of the array, and do it over again.
 
@@ -111,7 +118,7 @@ To start, we define an int $i$ with initial value $1$. This counts the number of
 
 Then, we check if $p$ is greater than the element in front of it. If it is, we swap them. We continue in this inner for-loop until we compare the entire list and the greatest element is at the end.
 
-Then, our outer for-loop value of $i$ will increment, and we will do the comparisons again starting at the front of the array. A really cool part of this code is that you’ll notice the inner loop states $p < list.length - i$, which means our inner-loop does not have to traverse the full array - rather, it can stop at a certain point before it reaches the end on each subsequent pass. Why might that be? (if you want a challenge, try to answer this before you move on to the next paragraph)
+Then, our outer for-loop value of $i$ will increment, and we will do the comparisons again starting at the front of the array. A really cool part of this code is that you’ll notice the inner loop states $p < list.length - i$, which means our inner-loop does not have to traverse the full array - rather, it can stop at a certain point before it reaches the end on each subsequent pass. Why might that be? (*if you want a challenge, try to answer this before you move on to the next paragraph*)
 
 Recall that the end of our list is sorted because at the end of the first pass, the greatest value is at the end of the array. The same applies for each pass after that. The next greatest element will be at the end of the array. This means we can stop each subsequent pass once we get to the part of the array that is already sorted, hence the $p < list.length - i$ rather than $p < list.length$.
 
