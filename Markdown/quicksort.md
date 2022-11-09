@@ -11,8 +11,8 @@ We can visualize this process with a tree-like structure as shown below in Figur
 ![7.1: Chart1](https://i.ibb.co/M6kby9t/table1.png)
 
 > **Figure S.1**
+Then, each subarray is placed back together. A new array is created as a result, with the subarray of values smaller than the partition at the beginning, followed by the $p$ element, and finally the subarray with the larger elements. This creates sorted arrays as you will always have elements less than the partition, then the partition itself, and elements greater than the partition, in the new array. This process can be visualized in figure S.2. QuickSort takes $O(n^2)$ in its worst-case scenario, and in both its expected and best case QuickSort takes $O(n \log{n})$. 
 
-Then, each one-element subarray is placed back together. The single-digit array containing the value is placed at the beginning, followed by the $p$ element, and finally the array with the larger element. Note, on subarrays with a size of 1, this just creates an ordered array. With larger arrays, a recursive method is utilized, sorting subtrees from the bottom up, as seen by the diagram in figure S.2. QuickSort takes $O(n^2)$ in its worst case scenario, and in both its expected and best case QuickSort takes $O(n \log{n})$.
 
 ![7.1: Chart1](https://i.ibb.co/d491L8r/table2.png)
 
