@@ -155,7 +155,7 @@ The MST from 0 would use the edges 0-1 and 1-2. This tree spans the entire graph
 
 ### Resources
 > https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
-> 
+>
 > https://cp-algorithms.com/graph/mst_kruskal.html
 > 
 > https://usaco.guide/gold/mst
