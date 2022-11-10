@@ -201,6 +201,87 @@ public class StackLinkedList  { //Each part of a Linked List is a node which car
 }
 ```
 
+**Additional ArrayList Implementation**
+
+```Java
+import java.util.ArrayList;
+​
+public class StackArrayList {
+​
+	private ArrayList<String> stack = new ArrayList<String>();
+	private String top;
+​
+	public StackArrayList(String data) {
+		stack.add(data);
+		top = data;
+	}
+​
+	public StackArrayList() {
+		top = null;
+	}
+​
+	// adds an inputed new value to the top of the stack
+	public void push(String newData) {
+		stack.add(newData);
+		top = newData;
+	}
+​
+	// removes and returns the top String in the stack
+	public String pop() {
+		if (this.isEmpty()) {
+			return "Cannot use pop, Stack is empty";
+		}
+​
+		String old = top;
+		stack.remove(stack.size()-1);
+		top = stack.get(stack.size()-1);
+		return old;
+	}
+​
+	// identifies whether or not the stack has at least one String
+	public boolean isEmpty() {
+		if (top == null) {
+			return true;
+		}
+		return false;
+	}
+​
+	public String toString() {
+		if (this.isEmpty()) {
+			return "Stack is empty";
+		}
+		String s = "";
+		for (int i = 0; i < stack.size(); i++) {
+			s += stack.get(i) + " ";
+		}
+		return s;
+	}
+​
+	public static void main(String [] args) {
+		// testing ths isEmpty method
+		StackArrayList s1 = new StackArrayList("A");
+		System.out.println(s1.isEmpty());
+​
+		StackArrayList s2 = new StackArrayList();
+		System.out.println(s2.isEmpty());
+​
+		// testing the push method
+		s1.push("B");
+		s1.push("C");
+		s1.push("D");
+​
+		// testing the pop and toString methods
+		System.out.println(s1);
+		s1.pop();
+		System.out.println(s1);
+​
+		System.out.println(s2);
+		System.out.println(s2.pop());
+	}
+​
+}
+```
+
 **Video: Stacks Explained**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pXKwjnyAL2I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
