@@ -6,7 +6,7 @@ layout: "@main"
 
 ## **Prerequisites**
 ### Algorithms:
-#### Arrays and Lists:
+### Arrays and Lists:
 
 Arrays are groups of items of the same type arranged sequentially. A list is similar to an array, except the items may be of different types. In both arrays and lists, each item in an array has an index, which refers to its position in the sequence. 
 
@@ -14,7 +14,7 @@ In Java, arrays must be initialized with a predetermined length, which cannot be
 
 Arrays and lists are zero-indexed in both Python and Java, meaning the first item in an array or list has an index of 0, and not 1.
 
-##### Initializing Arrays, Lists, and ArrayLists
+#### Initializing Arrays, Lists, and ArrayLists
 ##### Java
 
 ```java
@@ -38,7 +38,7 @@ list = [0, 'a', 3.14, False]
 
 Unlike Java, arrays, or lists, in Python do not have to be created with a pre-declared size. You can learn more about arrays in Python through this [W3 Schools Article](https://www.w3schools.com/python/python_lists.asp "W3 Schools Article") and the [Python documentation](https://docs.python.org/3/tutorial/datastructures.html "Python documentation").
 
-##### Multidimensional Arrays and Lists
+#### Multidimensional Arrays and Lists
 
 A two-dimensional array or list is simply an array of arrays or a list of lists. A three-dimensional array is an array of arrays of arrays. The pattern can be extended to any integer number of dimensions. Items can be located by the indexes of themselves within the array they are an immediate part of, and the indexes of the arrays the item is contained within.
 
@@ -74,7 +74,7 @@ Similar to the one-dimensional array, a size does not need to be declared in Pyt
 *Solution*: 
 list = $[[“X”,”O”,”X”],[“O”,”X”,”O”],[“X”,”O”,”X”]]$;
 
-#### Bubble Sort:
+### Bubble Sort:
 The bubble sort is known as the ‘classic’ method of sorting when it comes to arrays. It is often the first method of sorting that is introduced because of its ease to understand conceptually. When you imagine sorting an array, you might imagine putting the largest element at the end, smallest element at the front, or comparing the element to the one next to it to see which belongs at which end (greater or smaller). The latter method is the same idea behind the bubble sort.
 
 Let’s look at the example of what the Bubble Sort does below. Note that the example below briefly addresses the first few steps involved in the Bubble Sort.
@@ -126,7 +126,7 @@ Recall that the end of our list is sorted because at the end of the first pass, 
 
 *Solution*: Trace the code and you’ll notice a similar drawing/trace to the one above. You’ll likely have to go through 4 passes using the traditional bubble sort method. The next part of the question asks if you notice alternative ways to sort the data, and you probably thought of many. As you’ll see further on, there are many different algorithms to sort an array. There’s insertion sort (next section), selection sort, merge sort, quick sore, etc. Many of these algorithms vary in time-complexity, which you’ll read more on later in this section. For now, think of all the possibilities with different sorting algorithms.
 
-#### Insertion Sort:
+### Insertion Sort:
 
 **Before You Read**: Watch this [insertion sort demonstration](https://youtu.be/EdIKIf9mHk0 "insertion sort demonstration") for a way to visualize the insertion sort.
 
@@ -186,16 +186,16 @@ Notice how the insertion sort relies on two helper methods: insertItem and linea
 
 This implementation is different than what we discussed above in the order that it takes, but the steps are essentially the same.
 
-##### Asymptotic Notation and Time Complexity
+### Asymptotic Notation and Time Complexity
 With so many ways to perform searches and sorts, how do we decide which one to use? One factor that we take into account is how long the algorithm will take to run. Of course, algorithms will often have different runtimes based on the input. In order to generally measure the efficiency of different algorithms, we use something called **time complexity**, which we represent in **asymptotic notation**. Time complexity is an advanced computer science topic and is rooted in complex math, but at its core, the time complexity of an algorithm represents how many times statements will execute with respect to the size of the input, $n$. We most commonly use **big-O** notation to represent time complexity which is written as $O(f(n))$, where $f(n)$ is the function that represents how runtime changes in terms of $n$. For example, an algorithm that runs in $O(n)$ time will execute (on average) double the number of statements if we double the size of the input set. Time complexity gives us a guideline for how the runtimes of different algorithms grow as the size of the input, $n$, grows, though it is important to note that runtime and time complexity are not synonymous, and will not always vary proportionally. 
 
 
-***Exercise***: Given the previous example, explain how the time complexity of an algorithm that runs in O(1) time will (theoretically) change when we double the size of the input. What if we triple the size?
+***Exercise***: Given the previous example, explain how the time complexity of an algorithm that runs in $O(1)$ time will (theoretically) change when we double the size of the input. What if we triple the size?
 *Solution*: The runtime will (on average) not change
-***Exercise***:: Suppose we have a three-part algorithm. The first part runs in O(n) time, the second in O(n) and the third in O(n^2). What is the time complexity of the overall algorithm? 
-*Solution*: O(n^2+2n)
+***Exercise***:: Suppose we have a three-part algorithm. The first part runs in $O(n)$ time, the second in $O(n)$ and the third in $O(n^2)$. What is the time complexity of the overall algorithm? 
+*Solution*: $O(n^2+2n)$
 
-When determining time complexity, we disregard very small inputs, and suppose that $n$ is of a “reasonably large” size such that the algorithm will run in a predictable way. This is at the core of asymptotic notation, where the function represented inside the parentheses (ex. $n^2$ for $O(n^2)$) represents the “asymptote” of the runtime as the input gets very very large. Because of this, we can often simplify these functions as their limits when n approaches infinity. We also typically ignore constants when writing these functions, meaning we typically write $O(n)$ or $O(n^2)$ rather than $O(2n)$ or $O(3/2 n^2)$. This is often because these constants don’t particularly matter as $n$, $2n$, $3n$, $4n$, etc. will always be less than $n^2$ as $n$ gets very large. Though we most often use asymptotic notation to represent time complexity, it can also be used to represent space complexity in a similar way.
+When determining time complexity, we disregard very small inputs, and suppose that $n$ is of a “reasonably large” size such that the algorithm will run in a predictable way. This is at the core of asymptotic notation, where the function represented inside the parentheses (ex. $n^2$ for $O(n^2))$ represents the “asymptote” of the runtime as the input gets very very large. Because of this, we can often simplify these functions as their limits when n approaches infinity. We also typically ignore constants when writing these functions, meaning we typically write $O(n)$ or $O(n^2)$ rather than $O(2n)$ or $O(3/2 n^2)$. This is often because these constants don’t particularly matter as $n$, $2n$, $3n$, $4n$, etc. will always be less than $n^2$ as $n$ gets very large. Though we most often use asymptotic notation to represent time complexity, it can also be used to represent space complexity in a similar way.
 
 ***Exercise***: After learning these rules, simplify the time complexity you found in the previous exercise
 *Solution*: O(n^2)
