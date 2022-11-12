@@ -4,19 +4,19 @@ description: counting sort
 layout: "@main"
 ---
 
-## **S.1: Sorting in Linear Time**
+## Sorting in Linear Time
 
-There are many existing algorithms which sort collections of things, usually in the forms of arrays, trees, heaps, etc into a prefixed order (usually increasing or decreasing).
+There are many algorithms to sort collections of elements into a prefixed order (usually increasing or decreasing) from arrays, trees, heaps, etc.
 
-The most time efficient sorting algorithms known to mankind operate in $O(nlog(n))$ time.
+The most efficient sorting algorithms operate in $O(n*log n)$ time. 
 
-However, if there are size/range restrictions on the elements to be sorted, then there exist sorting algorithms that operate in linear $O(n)$ time.
+However, if there are size/range restrictions on the elements to be sorted, then sorting algorithms may operate in $O(n)$ time, a linear time-complexity.
 
-## **S.2: Counting Sort**
+## Counting Sort
 
-Counting sort assumes all elements are integers in a range, $[0, k-1]$ for a finite $k$. In short, the main characteristic of counting sort is that it uses an array with size $k$ to store the repetition counts of every element in the range.
+Counting sort assumes all elements are integers in a range, $[0, k-1]$ for a finite constant $k$. Essentially, counting sort uses an auxiliary array of size $k$ to store the repetition counts of every element in the given range. 
 
-### Algorithm
+#### Algorithm
 
 1. Create an array $A$ with size $k$, where $A[i]$ stores the number of times $i$ appears in the original array. We can do this by initializing $A$ to all $0$, and then as we read through the original array $O[i]$, we increment $A[O[i]]$ by 1.
 2. At this point, $A$ is a frequency count array across all $k$ elements in range. Next, we update $A$ as follows - we want $A[i]$ to be the sum of all $A[j]$ where $j < i$ in the previous iteration of $A$. This way, the new updated $A$ is organized so that $A[i]$ contains one more than the number of elements to come before it $i$ is to be in the array at all.
@@ -70,18 +70,18 @@ Fill in the seventh element, 4, into the right position, 4. Then, update 4 count
 
 ![Array S and A, update 8](https://i.ibb.co/D49T2qD/CSort10.png)
 
-And now $S$ is sorted!
+**And now $S$ is sorted!**
 
-Step 1 takes $O(n)$, Step 2 takes $O(k)$, Step 3 takes $O(n)$, Step 4 takes $O(n)$, so the overall runtime is $O(n)$ since $O(k)$ is constant.
+### Exercises
 
-No matter what the initial array $O$ is, the same steps are performed, so the runtime is always $O(n)$, best, worst, and average.
-
-### Exercise
+**Questions about Counting Sort's Time Complexity:**
+1. List the time complexities for each of the four steps in the counting sort algorithm
+2. Now find the overall runtime
 
 **Question**: In a stable sorting algorithm, when there are multiple instances of the same element, they will appear in the output array in the same order as they appeared in the input array. Is Counting Sort stable? Why or Why not?
 **Answer**: Yes, as the algorithm moves left to right, so it places instances of the same element that occur later in the array after previous instances.
 
-### Code Example: java
+#### Java
 
 ```java
 class CountingSort {
@@ -134,4 +134,32 @@ class CountingSort {
     System.out.println(Arrays.toString(data));
   }
 }
+```
+
+#### Python
+```python
+def countingSort(array):
+   size = len(array)
+   output = [0] * size
+
+   count = [0] * 10
+
+   for i in range(0, size):
+      count[array[i]] += 1
+
+   for i in range(1, 10):
+      count[i] += count[i - 1]
+
+   i = size - 1
+   while i >= 0:
+      output[count[array[i]] - 1] = array[i]
+      count[array[i]] -= 1
+      i -= 1
+
+   for i in range(0, size):
+      array[i] = output[i]
+
+data = [4,2,2,8,3,3,1]
+countingSort(data)
+print(data)
 ```
