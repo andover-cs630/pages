@@ -236,7 +236,7 @@ Voilà! We are finished with deletion!
 
 ### Comprehension Questions
 
-> 1. Given how the current insertion method is implemented for the Binary Search Tree, do you see any future issues in terms of maintaining a log(n) runtime when searching the BST?
+> 1. Given how the current insertion method is implemented for the Binary Search Tree, do you see any future issues in terms of maintaining a $log(n)$ runtime when searching the BST?
 
 - The insertion method does not make any attempt to “balance” the BST. To help visualize this, imagine this code:
 
