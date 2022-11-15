@@ -25,7 +25,7 @@ int[] array = new int[10];
 ArrayList<Integer> array = new ArrayList<Integer>();
 ```
 
-As you see in the ArrayList with Java (compared to the array), you’ll notice that the ArrayList is an object and has to be instantiated with the ‘new’ keyword. Unlike the static array, the ArrayList is dynamic, meaning that you do not have to define a size when it is created. You can add and delete elements wherever you choose to in the array. More examples of ArrayList operations can be found through this [W3 Schools Article](https://www.w3schools.com/java/java_arraylist.asp "W3 Schools Article") as well as the [Java documentation](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html "Java documentation") for the ArrayList class.
+As you see in the ArrayList with Java (compared to the array), you’ll notice that the ArrayList is an object and has to be instantiated with the ‘new’ keyword. Unlike the static array, the ArrayList is dynamic, meaning that you do not have to define a size when it is created. You can add and delete elements wherever you choose to in the array. More examples of ArrayList operations can be found through this [W3 Schools Article - Java ArrayLists](https://www.w3schools.com/java/java_arraylist.asp "W3 Schools Article") as well as the [Java documentation - Oracle](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html "Java Documentation - Oracle") for the ArrayList class.
 
 ##### Python
 ```python
